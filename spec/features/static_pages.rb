@@ -1,24 +1,24 @@
 require 'rails_helper'
 
 RSpec.feature "StaticPages", type: :feature do
-  describe 'home' do
-    specify '画面の表示' do
-      visit '/static_pages/home'
-      expect(page).to have_css('h1', text: 'Sample App')
+  describe 'Home' do
+    specify 'タイトル内容の表示' do
+      visit root_path
+      expect(page).to have_title 'Ruby on Rails Tutorial Sample App'
     end
   end
   
-  describe 'help' do
-    specify '画面の表示' do
-      visit '/static_pages/help'
-      expect(page).to have_css('h1', text: 'Help')
+  describe 'Help' do
+    specify 'タイトル内容の表示' do
+      visit help_path
+      expect(page).to have_title 'Help | Ruby on Rails Tutorial Sample App'
     end
   end
   
-  describe 'about' do
-    specify '画面の表示' do
-      visit '/static_pages/about'
-      expect(page).to have_css('h1', text: 'About')
+  describe 'About' do
+    specify 'タイトル内容の表示' do
+      visit about_path
+      expect(page).to have_title 'About | Ruby on Rails Tutorial Sample App'
     end
   end
 end
