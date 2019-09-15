@@ -78,3 +78,5 @@ bower.json
 # Ignore node_modules
 node_modules/
 
+# アップロードされたテスト画像を無視する
+/public/uploads

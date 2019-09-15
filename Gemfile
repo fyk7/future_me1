@@ -7,6 +7,10 @@ ruby '2.6.3'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
 gem 'faker'
+
+gem 'carrierwave'
+gem 'mini_magick'
+
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 # Use Puma as the app server
@@ -33,7 +37,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -78,6 +81,7 @@ end
 
 group :production do
   gem 'pg', '0.20.0'
+  gem 'fog'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
