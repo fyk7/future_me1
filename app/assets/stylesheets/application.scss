@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN";
+}
+a {
+  text-decoration: none;
+}
+
+.container-top{
+  width: 1170px;
+  padding: 0 15px;
+  margin:0 auto;
+}
+
+.top-wrapper{
+  background-image: url(https://prog-8.com/images/html/advanced/top.png);
+  padding: 150px 0 150px 0;
+  color: white;
+  background-size: cover;
+  text-align: center;
+}
+
+.top-wrapper h1{
+  opacity: 0.7;
+  font-size: 70px;
+  letter-spacing: 5px;
+  font-family: "Jenkins v2.0";   
+}
+
+.top-wrapper h2{
+  font-size: 35px;
+  opacity: 0.7;
+  margin-bottom: 100px;
+}
+
+.btn{
+  padding: 8px 24px;
+  color: white;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 4px;
+}
+
+.btn:hover{
+  opacity: 1;
+}
+
+.signup{
+  background-color: #239b76;
+  margin-right: 11px;
+}
+.signup-test{
+  background-color: #f5c02f;
+  margin-right: 28px;
+}
+
+.facebook{
+  background-color: #3b5998;
+  margin-right: 10px;
+}
+
+.twitter{
+  background-color: #55acee;
+  margin-bottom: 100px;
+}
+
+.btn-wrapper{
+  margin: 20px;
+  p{
+  margin: 10px 0;
+  }
+}
+
+.fa{
+  margin-right: 5px;
+}
+
+header{
+  height: 65px;
+  width: 100%;
+  background-color: rgba(34, 49, 52, 0.9);
+}
+
+.header-left{
+  float: left;
+  padding: 10px 0 0 20px;
+}
+.logo1{
+  color: white;
+  font-size: 30px;
+}
+
+.header-right {
+  float: right;
+}
+
+.right li{
+  display: block;
+  padding: 5px;
+  margin: 0 7px;
+  .logo2{
+  color: white;
+  }
+}
+
+.right li{
+  float: left;
+  width: auto;
+}
