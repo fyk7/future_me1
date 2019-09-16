@@ -14,17 +14,23 @@
   </div>
   </div>
 <% else %>
-  <div class="center jumbotron">
-    <h1>Future me　へようこそ！</h1>
-
-    <h2>
-      This is the home page for the
-      <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-      sample application.
-    </h2>
-
-    <%= link_to "新規登録!", signup_path, class: "btn btn-lg btn-primary" %>
+  <div class="top-wrapper">
+  <div class="container-top">
+    <h1>Future^me へようこそ！</h1>
+    <h2>未来の「自分」に助けてもらおう！過去の「自分」を助けよう！</h2>
+    <div class="btn-wrapper">
+　  <a><%= link_to "新規登録はこちら", signup_path, class: "btn signup" %></a>
+    <a><%= link_to "お試しログイン", signup_path, class: "btn signup-test" %></a>
+    <p>or sign up with</p>
+    <a class="btn facebook" href="#">
+      <span class="fa fa-facebook"></span>
+      Facebookで登録
+    </a>
+    <a class="btn twitter" href="#">
+      <span class="fa fa-twitter"></span>
+      Twitterで登録
+    </a>
+    </div>
   </div>
-
-  <%= link_to image_tag("rails.png", alt: "Rails logo"),'http://rubyonrails.org/' %>
+  </div>
 <% end %>
