@@ -9,5 +9,9 @@
   <p><%= f.password_field :password, class: 'form-control' %></p>
   <p>パスワードの確認</p>
   <p><%= f.password_field :password_confirmation, class: 'form-control' %></p>
-  <p><%= f.submit yield(:button_text), class: "btn btn-new-user" %></p>
+  <p><%= f.submit yield(:button_text), class: "btn signup" %></p>
+  <p class="btn twitter" href="#">
+      <span class="fa fa-twitter"></span>
+      Twitterで登録
+    </p>
 <% end %>

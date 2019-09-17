@@ -1,15 +1,16 @@
 <% provide(:title, 'All users') %>
-<h1>ユーザー一覧</h1>
-
-<%= will_paginate %>
-
-<ul class="users">
+<div class="users-wrap">
+<h1 class="users-heading">ユーザー一覧</h1>
   <% @users.each do |user| %>
-    <li>
-      <%= gravatar_for user, size: 50 %>
-      <%= link_to user.name, user %>
-    </li>
+    <div class="users-index-item">
+      <div class="user-left">
+        <%= gravatar_for user, size: 70 %>
+      </div>
+      <div class="user-right">
+        <%= link_to user.name, user %>
+      </div>
+    </div>
   <% end %>
-</ul>
 
-<%= will_paginate %>
+  <%= paginate @users %>
+</div>

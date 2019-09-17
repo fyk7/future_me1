@@ -1,5 +1,5 @@
 <% provide(:title, @user.name) %>
-<div class="row">
+<div class="profile">
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
@@ -8,13 +8,23 @@
       </h1>
     </section>
   </aside>
-  <div class="col-md-8">
+  <div class="microposts-wrap">
     <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @microposts %>
-      </ol>
-      <%= will_paginate @microposts %>
+      <h3><%= @user.microposts.count %>件のコメント</h3>
+      <% @microposts.each do |post| %>
+        <div class="posts-index-item">
+          <div class="post-left">
+            <%= gravatar_for @user %>
+          </div>
+          <div class="post-right">
+            <div class="post-user-name">
+              <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+            </div>
+            <%= link_to(post.content, "/posts/#{post.id}") %>
+          </div>
+        </div>
+      <% end %>
+      <%= paginate @microposts %>
     <% end %>
   </div>
 </div>

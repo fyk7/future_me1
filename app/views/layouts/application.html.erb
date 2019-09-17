@@ -18,6 +18,17 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
+    <% if logged_in? %>
+      <div class="header-side">
+        <h1>メニュー</h1>
+        <p>🏠 HOME</p>
+        <p>🏆ランキング！</p>
+        <p>㊫大学在学中</p>
+        <p>就職活動</p>
+        <p>社会人ルーキー</p>
+        <p>その他</p>
+      </div>
+    <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>

@@ -23,6 +23,7 @@ a {
 .top-wrapper h1{
   opacity: 0.8;
   font-size: 70px;
+  color: white;
   letter-spacing: 5px;
   font-family: "Jenkins v2.0";   
 }
@@ -90,7 +91,7 @@ header{
   margin-left: 15px;
 }
 .logo1{
-  color: white;
+  color: rgb(169, 255, 112);
   font-size: 30px;
 }
 
@@ -113,8 +114,25 @@ header{
   width: auto;
 }
 
+.header-side{
+  float: left;
+  width: 15%;
+  height: auto;
+  border-right: 1px solid #ccc;
+  position: fixed;
+  top: 60px;
+  z-index: 5;
+  h1{
+    margin: 30px 0 40px 50px;
+  }
+  p{
+    margin: 0 0 35px 35px;
+    font-size: 25px;
+  }
+}
+
 footer{
-  height: 10px;
+  height: 8px;
   width: 100%;
   background-color: rgba(162, 174, 177, 0.9);
   position: fixed;
@@ -123,23 +141,23 @@ footer{
   padding-bottom: 25px;
   p{
   color: #ffffff;
-  font-size:12px;
+  font-size:10px;
   text-align: center;  
-  padding: -5px 0 10px 0;
+  padding: -15px 0 10px 0;
   }
 }
 
 
 .form-heading{
   text-align: center;
-  font-size: 35px;
-  margin: 100px 0 20px 0;
+  font-size: 33px;
+  margin: 100px 0 10px 0;
 }
 .form-body{
   text-align: center;
   p{
     color: white;
-    margin-bottom: -10px;
+    margin-bottom: 10px;
   }
 }
 .users-form{
@@ -151,14 +169,127 @@ footer{
   padding: 10px;
 }
 .form-control{
-  width: 300px;
+  width: 275px;
   height: 25px;
   border-radius: 5px;
-  
-}
-.btn-new-user{
-  margin:20px;
-  background-color: #f1b612;
-  font-size: 18px;
 }
 
+//エラー画面整形
+#error_explanation ul{
+  list-style: none;
+  li{
+    color: rgb(255, 251, 0);
+    display: table;
+  }
+}
+.alert-danger{
+  color: rgb(255, 251, 0);
+  padding:0 0 -10px 0;
+}
+
+
+
+//ユーザー一覧中央ぞろえ
+
+.users-wrap{
+  width: 80%;
+  margin: 0 auto;
+  max-width: 600px;
+  padding-top: 65px;
+}
+
+.users-heading {
+  font-weight: 300;
+  margin: 15px 0 20px 150px;
+  font-size: 40px;
+  color: #1a1b1d;
+}
+
+.users-index-item {
+  padding: 20px 30px;
+  background-color: white;
+  overflow: hidden;
+  background-color: #f6f6f6;
+  border-bottom: 1px solid #ccc;
+  display: table;
+  width: 100%;
+}
+
+.user-left img {
+  width: 50px;
+  height: 50px;
+  border-radius: 40%;
+  box-shadow: 0 2px 6px #c1ced7;
+  object-fit: cover;
+}
+
+.user-name a {
+  font-weight: 600;
+}
+
+.user-name a:hover {
+  color: #3ecdc6;
+}
+
+.user-left {
+  float: left;
+  width: 10%;
+}
+
+.user-right {
+  width: 90%;
+  padding-left: 25px;
+  text-align: left;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+//投稿の中央ぞろえ
+.profile h1{
+  width: 80%;
+  margin: 0 auto;
+  max-width: 800px;
+  padding-top: 65px;
+}
+.microposts-wrap{
+  width: 80%;
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+//プロフィール画面のmicroposts
+.posts-index-item {
+  padding: 20px 30px;
+  background-color: white;
+  overflow: hidden;
+  background-color: #f6f6f6;
+  border-bottom: 1px solid #ccc;
+}
+
+.post-left img {
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  box-shadow: 0 2px 6px #c1ced7;
+  object-fit: cover;
+}
+
+.post-user-name a {
+  font-weight: 600;
+}
+
+.post-user-name a:hover {
+  color: #dda02e;
+}
+
+.post-left {
+  float: left;
+  width: 10%;
+}
+
+.post-right {
+  float: left;
+  width: 50%;
+  padding-left: 10px;
+  text-align: left;
+}

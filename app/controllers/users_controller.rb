@@ -4,12 +4,12 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.all.order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts = @user.microposts.all.order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def new

@@ -1,7 +1,7 @@
 <header>
   <div class="container">
     <div class="header-left">
-      <%= link_to "Future^me", root_path, class: "logo1" %>
+      <%= link_to "Future⇀me", root_path, class: "logo1" %>
     </div>
     <div class="header-right">
       <nav class="right">
@@ -13,12 +13,13 @@
           <li><%= link_to "設定", edit_user_path(current_user), class: "logo2" %></li>
           <li><%= link_to "ログアウト", logout_path, method: :delete, class: "logo2" %></li>
         <% else %>
-          <li><%= link_to "Future^meとは？", help_path, class: "logo2" %></li>
+          <li><%= link_to "Future⇀meとは？", help_path, class: "logo2" %></li>
           <li><%= link_to "新規登録", signup_path, class: "logo2" %></li>
           <li><%= link_to "ログイン", login_path, class: "logo2" %></li>
         <% end %>
       </ul>
       </nav>
     </div>
+    
   </div>
 </header>
