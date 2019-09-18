@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.all.order(created_at: :desc).page(params[:page]).per(20)
+    #@likes_count = Like.where(micropost_id: @post.id).count
   end
 
   def new
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in(@user)
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Future⇀meへようこそ！"
       redirect_to user_url(@user)
     else
       render 'new'
@@ -45,6 +46,9 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"
     redirect_to users_url
+  end
+
+  def likes
   end
 
   private

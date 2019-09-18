@@ -1,18 +1,4 @@
-<% provide(:title, @user.name) %>
-<div class="profile">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
-  <div class="microposts-wrap">
-    <% if @user.microposts.any? %>
-      <h3><%= @user.microposts.count %>件のコメント</h3>
-      <% @microposts.each do |micropost| %>
-        <div class="posts-index-item">
+<div class="posts-index-item">
           <div class="post-left">
             <%= gravatar_for(micropost.user) %>
           </div>
@@ -30,8 +16,3 @@
             </span>
           </div>
         </div>
-      <% end %>
-      <%= paginate @microposts %>
-    <% end %>
-  </div>
-</div>
