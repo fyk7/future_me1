@@ -4,7 +4,10 @@
   <% @users.each do |user| %>
     <div class="users-index-item">
       <div class="user-left">
-        <%= gravatar_for user, size: 70 %>
+        <%#= gravatar_for user, size: 70 %>
+        <div class="user-left">
+          <img src = "<%="/user_images/#{user.image_name}"%>">
+        </div>
       </div>
       <div class="user-right">
         <%= link_to user.name, user %>

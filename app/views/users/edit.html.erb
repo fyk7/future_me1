@@ -1,16 +1,30 @@
 <% provide(:title, "Edit user") %>
 <% provide(:button_text, 'アカウントの更新') %>
 <div class="users-wrap">
-<h1>Update your profile</h1>
-
+<% @user.errors.full_messages.each do |message| %>
+  <div class="form-error">
+    <%= message %>
+  </div>
+<% end %>
+<h1>プロフィール編集</h1>
+<div class="user-left">
+  <div class="user-left">
+    <img src = "<%="/user_images/#{@user.image_name}"%>">
+    <%= @user.name%>
+  </div>
+</div>
 
   <div class="form users-form">
     <div class="form-body">
-      <%= render 'form'%>
+    <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
+      <p>ユーザー名</p>
+      <input name="name" value="<%= @user.name %>">
+      <p>画像</p>
+      <input name="image" type="file">
+      <p>メールアドレス</p>
+      <input name="email" value="<%= @user.email %>">
+      <input type="submit" value="保存">
+    <% end %>
     </div>
   </div>
-    <div class="gravatar_edit">
-      <%= gravatar_for @user %>
-      <a href="http://gravatar.com/emails" target="_blank" rel='noopener'>change</a>
-    </div>
 </div>

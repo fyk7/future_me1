@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, {multipart: true}) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
  
   <p>名前</p>
@@ -9,9 +9,11 @@
   <p><%= f.password_field :password, class: 'form-control' %></p>
   <p>パスワードの確認</p>
   <p><%= f.password_field :password_confirmation, class: 'form-control' %></p>
+  <% if current_user%>
+    <p>プロフィール画像の更新</p>
+    <p><%= f.file_field :image_name, class: 'form-control' %></p>
+  <% end%>
   <p><%= f.submit yield(:button_text), class: "btn signup" %></p>
-  <p class="btn twitter" href="#">
-      <span class="fa fa-twitter"></span>
-      Twitterで登録
-    </p>
+  
+  
 <% end %>

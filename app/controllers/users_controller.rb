@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.all.order(created_at: :desc).page(params[:page]).per(20)
-    #@likes_count = Like.where(micropost_id: @post.id).count
   end
 
   def new
@@ -19,6 +18,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.image_name = "default_user.png"#デフォルトプロフィール
     if @user.save
       log_in(@user)
       flash[:success] = "Future⇀meへようこそ！"
@@ -34,8 +34,15 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+
+    if params[:image]
+      @user.image_name = "#{@user.id}.jpg"
+      image = params[:image]
+      File.binwrite("public/user_images/#{@user.image_name}",image.read)
+    end
+
+    if @user.save#update_attributes(user_params)
+      flash[:success] = "プロフィールをアップデートしました"
       redirect_to @user
     else
       render 'edit'
@@ -55,7 +62,7 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
-        :password_confirmation)
+        :password_confirmation, :image_name)
     end
 
     def correct_user

@@ -18,6 +18,18 @@ class MicropostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
+  def show 
+    @micropost = Micropost.find_by(id: params[:id])
+    @user = @micropost.user
+    @likes_count = Like.where(micropost_id: @micropost.id).count
+  end
+
+  def edit
+    @micropost = Micropost.find_by(id: params[:id])
+    @user = @micropost.user
+    @micropost_form  = current_user.microposts.build
+  end
+
   private
 
     def micropost_params

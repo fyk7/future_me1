@@ -256,6 +256,11 @@ footer{
   max-width: 650px;
 }
 
+//投稿詳細画面
+.post-show{
+  margin-top: 100px;
+}
+
 //プロフィール画面のmicroposts
 .posts-index-item {
   padding: 20px 30px;
@@ -321,3 +326,15 @@ footer{
   width:300px;
   height:100px;
 }
+
+//いいねボタンの色
+.like-btn{
+  color: #8899a6;
+}
+.like-btn-unlike{
+  color: #ff2525;
+}
+//.posts-show-item .fa {
+  //font-size: 16px;
+  //margin-right: 3px;
+//}
