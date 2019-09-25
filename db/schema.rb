@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_19_151745) do
+ActiveRecord::Schema.define(version: 2019_09_24_094110) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_09_19_151745) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
+    t.integer "micropost_category"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_09_19_151745) do
     t.string "remember_digest"
     t.boolean "admin", default: false
     t.string "image_name"
+    t.integer "user_category"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

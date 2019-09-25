@@ -2,6 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
+  def search
+    #Viewのformで取得したパラメータをモデルに渡す
+    @posts = Micropost.search(params[:search])
+  end
+
   private
 
   def logged_in_user

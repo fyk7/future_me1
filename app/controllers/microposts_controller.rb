@@ -8,6 +8,7 @@ class MicropostsController < ApplicationController
       flash[:success] = "投稿しました！"
       redirect_to root_url
     else
+      @all_user_microposts = []
       render 'static_pages/home'
     end
   end
@@ -30,10 +31,33 @@ class MicropostsController < ApplicationController
     @micropost_form  = current_user.microposts.build
   end
 
+  def rank_all
+    @microposts = Micropost.find(Like.group(:micropost_id).order('count(micropost_id) desc').limit(20).pluck(:micropost_id))
+  end
+  
+ # def rank_all
+  #  micropost_like_count = Micropost.joins(:likes).group(:micropost_id).count
+   # micropost_liked_ids = Hash[micropost_like_count.sort_by{ |_, v| -v }].keys
+    #@microposts= Micropost.where(id: micropost_liked_ids)
+  #end
+
+  def recruit
+    @microposts = Micropost.where(micropost_category: 4)#.find(Like.group(:micropost_id).order('count(micropost_id) desc').limit(20).pluck(:micropost_id))
+  end
+
+  def work_rookie
+    @microposts = Micropost.where(micropost_category: 5)
+  end
+
+  def search
+    #Viewのformで取得したパラメータをモデルに渡す
+    @microposts = Micropost.search(params[:search]).page(params[:page]).per(25)
+  end
+
   private
 
     def micropost_params
-      params.require(:micropost).permit(:content, :picture)
+      params.require(:micropost).permit(:content, :picture, :micropost_category)
     end
 
     def correct_user

@@ -22,12 +22,16 @@
     <% if logged_in? %>
       <div class="header-side">
         <h1>メニュー</h1>
-        <p>🏠 HOME</p>
-        <p>🏆ランキング！</p>
+        <p><%= link_to("🏠 HOME", root_path) %></p>
+        <p><%= link_to("🏆ランキング！", rank_all_path) %></p>
         <p>㊫大学在学中</p>
-        <p>就職活動</p>
-        <p>社会人ルーキー</p>
-        <p>その他</p>
+        <p><%= link_to("就職活動", recruit_path) %></p>
+        <p><%= link_to("社会人ルーキー", work_rookie_path) %></p>
+        <p>投稿の検索</p>
+<%= form_tag(search_path,:method => 'get') do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
       </div>
     <% end %>
       <%= yield %>

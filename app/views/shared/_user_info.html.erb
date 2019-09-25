@@ -1,4 +1,6 @@
-<%= link_to gravatar_for(current_user, size: 100), current_user %>
+<div class="">
+<img src = "<%="/user_images/#{@user.image_name}"%>" width="70" height="70">
 <p><%= current_user.name %></p>
+</div>
 <%= link_to "プロフィール", current_user %>
 <%= pluralize(current_user.microposts.count, "micropost") %>

@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   resources :users
   resources :microposts,          only: [:create, :destroy, :show, :edit]
   get  '/micropost',  to: 'microposts#show'
+  get  '/rank_all',  to: 'microposts#rank_all'
+  get  '/recruit',  to: 'microposts#recruit'
+  get  '/work_rookie',  to: 'microposts#work_rookie'
+  get '/search',  to: 'microposts#search'
   post "likes/:micropost_id/create" => "likes#create"
   post "likes/:micropost_id/destroy" => "likes#destroy"
   get "users/:id/likes" => "users#likes"
