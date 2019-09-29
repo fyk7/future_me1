@@ -58,6 +58,11 @@ class UsersController < ApplicationController
   def likes
   end
 
+  def search
+    #Viewのformで取得したパラメータをモデルに渡す
+    @users = User.search(params[:search_user]).page(params[:page]).per(25)
+  end
+
   private
 
     def user_params
@@ -73,4 +78,5 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
+
 end

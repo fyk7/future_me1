@@ -4,6 +4,10 @@ class StaticPagesController < ApplicationController
       @micropost_form  = current_user.microposts.build
       @microposts = Micropost.all.order(created_at: :desc).page(params[:page]).per(25)
       @user = current_user
+
+      #@q = User.ransack(params[:q])
+      #@users = @q.result(distinct: true)
+      
     end
   end
 

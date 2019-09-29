@@ -7,8 +7,10 @@ ruby '2.6.3'
 gem 'rails', '5.2.3'
 # Use sqlite3 as the database for Active Record
 gem 'bootstrap-sass'
+gem 'sassc', '2.2.0'
 #gem 'ovirt-engine-sdk-4.3.0'
 gem 'faker'
+gem 'ransack'
 
 gem 'carrierwave'
 gem 'mini_magick'

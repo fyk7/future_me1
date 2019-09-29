@@ -1,0 +1,27 @@
+<div class="microposts-wrap">
+<p>検索結果</p>
+<%= form_tag(search_user_path,:method => 'get') do %>
+  <%= text_field_tag :search_user %>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
+</div>
+<div class="users-wrap">
+<h1 class="users-heading">ユーザー検索結果</h1>
+  <% @users.each do |user| %>
+    <div class="users-index-item">
+      <div class="user-left">
+        <%#= gravatar_for user, size: 70 %>
+        <div class="user-left">
+          <img src = "<%="/user_images/#{user.image_name}"%>">
+        </div>
+      </div>
+      <div class="user-right">
+        <%= link_to user.name, user %>
+        <% user_categorys = {1=>"大学1~2年", 2=>"大学2~3年", 3=>"大学3~4年", 4=>"就活中", 5=>"社会人ルーキー", 6=>"社会人ミドル"} %>
+        <%= user_categorys[user.user_category] %>
+      </div>
+    </div>
+  <% end %>
+  <%= paginate @users %>
+</div>
+</div>

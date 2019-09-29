@@ -34,12 +34,6 @@ class MicropostsController < ApplicationController
   def rank_all
     @microposts = Micropost.find(Like.group(:micropost_id).order('count(micropost_id) desc').limit(20).pluck(:micropost_id))
   end
-  
- # def rank_all
-  #  micropost_like_count = Micropost.joins(:likes).group(:micropost_id).count
-   # micropost_liked_ids = Hash[micropost_like_count.sort_by{ |_, v| -v }].keys
-    #@microposts= Micropost.where(id: micropost_liked_ids)
-  #end
 
   def recruit
     @microposts = Micropost.where(micropost_category: 4)#.find(Like.group(:micropost_id).order('count(micropost_id) desc').limit(20).pluck(:micropost_id))
@@ -51,7 +45,7 @@ class MicropostsController < ApplicationController
 
   def search
     #Viewのformで取得したパラメータをモデルに渡す
-    @microposts = Micropost.search(params[:search]).page(params[:page]).per(25)
+    @microposts = Micropost.search(params[:search_micropost]).page(params[:page]).per(25)
   end
 
   private

@@ -1,7 +1,7 @@
 <div class="microposts-wrap">
 <p>検索結果</p>
-<%= form_tag(search_path,:method => 'get') do %>
-  <%= text_field_tag :search %>
+<%= form_tag(search_micropost_path,:method => 'get') do %>
+  <%= text_field_tag :search_micropost %>
   <%= submit_tag 'Search', :name => nil %>
 <% end %>
 </div>
@@ -11,3 +11,6 @@
   　<%= render 'shared/many_microposts' %>
     <%= paginate @microposts %>
 </div>
+
+
+
