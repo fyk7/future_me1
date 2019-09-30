@@ -5,6 +5,9 @@ ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.2.3'
+
+gem 'mysql2'
+gem 'dotenv-rails'
 # Use sqlite3 as the database for Active Record
 gem 'bootstrap-sass'
 gem 'sassc', '2.2.0'
@@ -50,7 +53,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'sqlite3'
+  #gem 'sqlite3'
+  gem 'mysql2'
   gem 'spring-commands-rspec'
 end
 
@@ -84,7 +88,8 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.20.0'
+  #gem 'pg', '0.20.0'
+  gem 'mysql2'
   gem 'fog'
 end
 
