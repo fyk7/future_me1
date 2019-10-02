@@ -11,6 +11,5 @@ class LikesController < ApplicationController
     @like.destroy
     redirect_to("/microposts/#{params[:micropost_id]}")
   end
-
   
 end
