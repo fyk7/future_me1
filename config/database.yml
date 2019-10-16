@@ -24,21 +24,30 @@
   #<<: *default
   #database: db/production.sqlite3
 
-  development:
-   adapter: mysql2
-   encoding: utf8
-   database: mysql_development
-   pool: 5
-   username: <%= ENV['DATABASE_DEV_USER'] %>
-   password: <%= ENV['DATABASE_DEV_PASSWORD'] %>
-   host: <%= ENV['DATABASE_DEV_HOST'] %>
 
-  production:
-   adapter: mysql2
-   encoding: utf8
-   reconnect: false
-   database: future_me1_mysql_production
-   pool: 5
-   username: root
-   password:
-   host: localhost
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: rails_deveropment
+  pool: 5
+  username: root
+  password: password
+  host: db
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: rails_test
+  pool: 5
+  username: root
+  password: password
+  host: db
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: rails_production
+  pool: 5
+  username: <%= Rails.application.credentials.db[:username] %>
+  password: <%= Rails.application.credentials.db[:password] %>
+  host: db

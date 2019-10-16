@@ -83,3 +83,5 @@ node_modules/
 
 #　環境設定
 .env
+
+.mysql-data/
