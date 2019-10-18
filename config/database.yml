@@ -48,6 +48,6 @@ production:
   encoding: utf8
   database: rails_production
   pool: 5
-  username: nnn
-  password: nnn
+  username: <%= Rails.application.credentials.db[:username] %>
+  password: <%= Rails.application.credentials.db[:password] %>
   host: db

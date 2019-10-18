@@ -1,7 +1,7 @@
 <%= form_for(@micropost_form) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "micropost" , :size=>"50"%>
+    <%= f.text_area :content,class: "form-group", placeholder: "micropost" , :size=>"50"%>
   </div>
     for<%= f.select :micropost_category,[["大学1~2年", 1], ["大学2~3年", 2], ["大学3~4年", 3], 
     ["就活中", 4], ["社会人ルーキー", 5], ["社会人ミドル", 6]] %>

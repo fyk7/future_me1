@@ -17,12 +17,10 @@
 
  @import "bootstrap";
 
+ .body{
+   background-color: #8899a6;
+ } 
 
-body {
-    margin: 0;
-    font-family: "Hiragino Kaku Gothic ProN";
-  }
-  
   //最初の登録画面
   .container-top{
     width: 1170px;
@@ -124,45 +122,78 @@ body {
     border-radius: 4px;
   }
   
-  
-  
-  .header-side{
-    float: left;
-    width: 15%;
-    height: auto;
-    position: fixed;
-    top: 60px;
-    z-index: 5;
-    h1{
-      margin: 30px 0 40px 50px;
-    }
-    p{
-      margin: 0 0 35px 35px;
-      font-size: 25px;
-    }
+
+  //サイドバー
+
+  .wrapper-s{
+    display: flex;
+    position: relative;
+    padding-left: -50px;
   }
   
-  /*
-  footer{
-    height: 8px;
-    width: 100%;
-    background-color: rgba(162, 174, 177, 0.9);
+  .wrapper-s .sidebar{
+    width: 200px;
+    height: 100%;
+    background: #5e5d61;
+    
+    padding: 30px 0px;
     position: fixed;
+  }
+  
+  .wrapper-s .sidebar h2{
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .wrapper-s .sidebar ul li{
+    padding: 15px;
+    border-bottom: 1px solid #bdb8d7;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    list-style: none;
+  }    
+  
+  .wrapper-s .sidebar ul li a{
+    //color: #bdb8d7;
+    color: #b8d7bc;
+    display: block;
+  }
+  
+  .wrapper-s .sidebar ul li a .fas{
+    width: 25px;
+  }
+  
+  .wrapper-s .sidebar ul li:hover{
+    //background-color: #594f8d;
+    background-color: #4f8d5e;
+  }
+      
+  .wrapper-s .sidebar ul li:hover a{
+    color: #fff;
+  }
+   
+  .wrapper-s .sidebar .social_media{
+    position: absolute;
     bottom: 0;
-    z-index: 10;
-    padding-bottom: 25px;
-    p{
-    color: #ffffff;
-    font-size:10px;
-    text-align: center;  
-    padding: -15px 0 10px 0;
-    }
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
   }
-  */
-
-  /* footer */
-
-
+  
+  .wrapper-s .sidebar .social_media a{
+    display: block;
+    width: 40px;
+    background: #509e61;
+    height: 40px;
+    line-height: 45px;
+    text-align: center;
+    margin: 0 5px;
+    color: #bfd7b8;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
   
   
   //エラー画面整形
@@ -178,7 +209,8 @@ body {
     padding:0 0 -10px 0;
   }
   
-  
+
+ 
   
   //ユーザー一覧中央ぞろえ
   

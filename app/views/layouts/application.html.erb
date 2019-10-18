@@ -8,45 +8,34 @@
     <%= javascript_include_tag 'application',
                                'data-turbolinks-track': 'reload' %>
 
-    
+
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    
     <%= render 'layouts/shim'%>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
   </head>
   <body>
     <%= render 'layouts/header1'%>
-    <div class="container">
-    <% if flash[:notice] %>
-      <div class="flash">
-        <%= flash[:notice] %>
+      <% if logged_in? %>
+      <div class="row no-gutters">
+        <div class="col-md-2 d-none d-md-block">
+        <%= render 'layouts/sidebar'%>
+        </div>
+        <div class="col-md-8">
+        <% if flash[:notice] %>
+          <div class="flash">
+            <%= flash[:notice] %>
+          </div> 
+        <% end %>
+        <%= yield %>
+        </div>
+        <div class="col-md-2 d-none d-md-block">
+        </div>
       </div>
-    <% end %>
-    <% if logged_in? %>
-      <div class="header-side">
-        <h1>メニュー</h1>
-        <p><%= link_to("🏠 HOME", root_path) %></p>
-        <p><%= link_to("🏆ランキング！", rank_all_path) %></p>
-        <p>㊫大学在学中</p>
-        <p><%= link_to("就職活動", recruit_path) %></p>
-        <p><%= link_to("社会人ルーキー", work_rookie_path) %></p>
-        <p>投稿の検索</p>
-        <%= form_tag(search_micropost_path,:method => 'get') do %>
-        <%= text_field_tag :search_micropost　 %>
-        <%= submit_tag '検索', :name => nil %>
-        <% end %>
-        <p>ユーザーの検索</p>
-        <%= form_tag(search_user_path,:method => 'get') do %>
-        <%= text_field_tag :search_user %>
-        <%= submit_tag '検索', :name => nil %>
-        <% end %>
+      <% else %>
+        <%= yield %>
+      <% end %>
 
-      </div>
-    <% end %>
-      <%= yield %>
-      
-    </div>
     <%= render 'layouts/footer' %>
   </body>
 </html>

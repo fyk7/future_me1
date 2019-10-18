@@ -1,0 +1,21 @@
+<% if logged_in? %>
+  <div class="header-side">
+    <h1>メニュー</h1>
+    <p><%= link_to("🏠 HOME", root_path) %></p>
+    <p><%= link_to("🏆ランキング！", rank_all_path) %></p>
+    <p>㊫大学在学中</p>
+    <p><%= link_to("就職活動", recruit_path) %></p>
+    <p><%= link_to("社会人ルーキー", work_rookie_path) %></p>
+    <p>投稿の検索</p>
+    <%= form_tag(search_micropost_path,:method => 'get') do %>
+    <%= text_field_tag :search_micropost　 %>
+    <%= submit_tag '検索', :name => nil %>
+    <% end %>
+    <p>ユーザーの検索</p>
+    <%= form_tag(search_user_path,:method => 'get') do %>
+    <%= text_field_tag :search_user %>
+    <%= submit_tag '検索', :name => nil %>
+    <% end %>
+
+  </div>
+<% end %>
