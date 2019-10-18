@@ -1,342 +1,334 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which
+ * will include all the files listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets,
+ * vendor/assets/stylesheets, or vendor/assets/stylesheets of plugins, if any,
+ * can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear
+ * at the bottom of the compiled file so the styles you add here take
+ * precedence over styles defined in any styles defined in the other CSS/SCSS
+ * files in this directory. It is generally better to create a new file per
+ * style scope.
+ *
+ 
+ */
+
+ @import "bootstrap";
+
+
 body {
-  margin: 0;
-  font-family: "Hiragino Kaku Gothic ProN";
-}
-a {
-  text-decoration: none;
-}
-
-.container-top{
-  width: 1170px;
-  padding: 0 15px;
-  margin:0 auto;
-}
-
-.top-wrapper{
-  background-image: url(https://prog-8.com/images/html/advanced/top.png);
-  padding: 200px 0 150px 0;
-  color: white;
-  background-size: cover;
-  text-align: center;
-}
-
-.top-wrapper h1{
-  opacity: 0.8;
-  font-size: 70px;
-  color: white;
-  letter-spacing: 5px;
-  font-family: "Jenkins v2.0";   
-}
-
-.top-wrapper h2{
-  font-size: 35px;
-  opacity: 0.8;
-  margin-bottom: 100px;
-}
-
-.btn{
-  padding: 8px 24px;
-  color: white;
-  display: inline-block;
-  opacity: 0.8;
-  border-radius: 4px;
-}
-
-.btn:hover{
-  opacity: 1;
-}
-
-.signup{
-  background-color: #239b76;
-  margin-right: 11px;
-}
-.signup-test{
-  background-color: #f5c02f;
-  margin-right: 28px;
-}
-
-.facebook{
-  background-color: #3b5998;
-  margin-right: 10px;
-}
-
-.twitter{
-  background-color: #55acee;
-  margin-bottom: 120px;
-}
-
-.btn-wrapper{
-  margin: 20px;
-  p{
-  margin: 10px 0;
+    margin: 0;
+    font-family: "Hiragino Kaku Gothic ProN";
   }
-}
-
-.fa{
-  margin-right: 5px;
-}
-
-header{
-  height: 60px;
-  width: 100%;
-  background-color: rgba(34, 49, 52, 0.9);
-  position: fixed;
-  top: 0;
-  z-index: 10;
-}
-
-.header-left{
-  float: left;
-  padding: 9px 0 0 20px;
-  margin-left: 15px;
-}
-.logo1{
-  color: rgb(169, 255, 112);
-  font-size: 30px;
-}
-
-.header-right {
-  float: right;
-  margin-right: 10px;
-}
-
-.right li{
-  display: block;
-  padding: 5px;
-  margin: -1px 7px;
-  .logo2{
-  color: white;
+  
+  //最初の登録画面
+  .container-top{
+    width: 1170px;
+    padding: 0 15px;
+    margin:0 auto;
   }
-}
-
-.right li{
-  float: left;
-  width: auto;
-}
-
-.header-side{
-  float: left;
-  width: 15%;
-  height: auto;
-  position: fixed;
-  top: 60px;
-  z-index: 5;
-  h1{
-    margin: 30px 0 40px 50px;
-  }
-  p{
-    margin: 0 0 35px 35px;
-    font-size: 25px;
-  }
-}
-
-footer{
-  height: 8px;
-  width: 100%;
-  background-color: rgba(162, 174, 177, 0.9);
-  position: fixed;
-  bottom: 0;
-  z-index: 10;
-  padding-bottom: 25px;
-  p{
-  color: #ffffff;
-  font-size:10px;
-  text-align: center;  
-  padding: -15px 0 10px 0;
-  }
-}
-
-
-.form-heading{
-  text-align: center;
-  font-size: 33px;
-  margin: 100px 0 10px 0;
-}
-.form-body{
-  text-align: center;
-  p{
+  
+  .top-wrapper{
+    background-image: url(https://prog-8.com/images/html/advanced/top.png);
+    padding: 200px 0 150px 0;
     color: white;
-    margin-bottom: 10px;
+    background-size: cover;
+    text-align: center;
   }
+  
+  .top-wrapper h1{
+    opacity: 0.8;
+    font-size: 70px;
+    color: white;
+    letter-spacing: 5px;
+    font-family: "Jenkins v2.0";   
+  }
+  
+  .top-wrapper h2{
+    font-size: 35px;
+    opacity: 0.8;
+    margin-bottom: 100px;
+  }
+  
+  .btn1{
+    padding: 8px 24px;
+    color: white;
+    display: inline-block;
+    opacity: 0.8;
+    border-radius: 4px;
+  }
+  
+  .btn1:hover{
+    opacity: 1;
+  }
+  
+  .signup{
+    background-color: #239b76;
+    margin-right: 11px;
+  }
+  .signup-test{
+    background-color: #f5c02f;
+    margin-right: 28px;
+  }
+  
+  .facebook{
+    background-color: #3b5998;
+    margin-right: 10px;
+  }
+  
+  .twitter{
+    background-color: #55acee;
+    margin-bottom: 120px;
+  }
+  
+  .btn-wrapper{
+    margin: 20px;
+    p{
+    margin: 10px 0;
+    }
+  }
+  
+  .fa{
+    margin-right: 5px;
+  }
+  
+  //ヘッダー
+  .navbar{
+    background-color: rgba(34, 49, 52, 0.9);
+    //top: 0;
+    font-family: 'Microsoft Sans Serif'; 
+    //z-index: 10;
+    //color: white;
+  }
+  .navbar-toggler {
+    border-color: rgba(0,0,0,0);   
 }
-.users-form{
-  background-image: url(https://prog-8.com/images/html/advanced/top.png);
-  width: 325px;
-  margin-bottom: 35px;
-  margin: auto;
-  //border-radius: 5px;
-  padding: 10px;
-}
-.form-control{
-  width: 275px;
-  height: 25px;
-  border-radius: 5px;
-}
+  
+  .logo1{
+    color: rgb(169, 255, 112);
+    font-size: 30px;
+  }
 
-//エラー画面整形
-#error_explanation ul{
-  list-style: none;
-  li{
+  .logo2{
+    color: white;
+    font-size: 16px;
+    font-family: 'Microsoft Sans Serif';  
+  }
+  
+  .btn-head{
+    padding: 5px 15px;
+    display: inline-block;
+    opacity: 0.9;
+    border-radius: 4px;
+  }
+  
+  
+  
+  .header-side{
+    float: left;
+    width: 15%;
+    height: auto;
+    position: fixed;
+    top: 60px;
+    z-index: 5;
+    h1{
+      margin: 30px 0 40px 50px;
+    }
+    p{
+      margin: 0 0 35px 35px;
+      font-size: 25px;
+    }
+  }
+  
+  /*
+  footer{
+    height: 8px;
+    width: 100%;
+    background-color: rgba(162, 174, 177, 0.9);
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    padding-bottom: 25px;
+    p{
+    color: #ffffff;
+    font-size:10px;
+    text-align: center;  
+    padding: -15px 0 10px 0;
+    }
+  }
+  */
+
+  /* footer */
+
+
+  
+  
+  //エラー画面整形
+  #error_explanation ul{
+    list-style: none;
+    li{
+      color: rgb(255, 251, 0);
+      display: table;
+    }
+  }
+  .alert-danger{
     color: rgb(255, 251, 0);
+    padding:0 0 -10px 0;
+  }
+  
+  
+  
+  //ユーザー一覧中央ぞろえ
+  
+  .users-wrap{
+    width: 80%;
+    margin: 0 auto;
+    max-width: 600px;
+    padding-top: 65px;
+  }
+  
+  .users-heading {
+    font-weight: 300;
+    margin: 15px 0 20px 150px;
+    font-size: 40px;
+    color: #1a1b1d;
+  }
+  
+  .users-index-item {
+    padding: 20px 30px;
+    background-color: white;
+    overflow: hidden;
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #ccc;
     display: table;
+    width: 100%;
   }
-}
-.alert-danger{
-  color: rgb(255, 251, 0);
-  padding:0 0 -10px 0;
-}
-
-
-
-//ユーザー一覧中央ぞろえ
-
-.users-wrap{
-  width: 80%;
-  margin: 0 auto;
-  max-width: 600px;
-  padding-top: 65px;
-}
-
-.users-heading {
-  font-weight: 300;
-  margin: 15px 0 20px 150px;
-  font-size: 40px;
-  color: #1a1b1d;
-}
-
-.users-index-item {
-  padding: 20px 30px;
-  background-color: white;
-  overflow: hidden;
-  background-color: #f6f6f6;
-  border-bottom: 1px solid #ccc;
-  display: table;
-  width: 100%;
-}
-
-.user-left img {
-  width: 50px;
-  height: 50px;
-  border-radius: 40%;
-  box-shadow: 0 2px 6px #c1ced7;
-  object-fit: cover;
-}
-
-.user-name a {
-  font-weight: 600;
-}
-
-.user-name a:hover {
-  color: #3ecdc6;
-}
-
-.user-left {
-  float: left;
-  width: 10%;
-}
-
-.user-right {
-  width: 90%;
-  padding-left: 25px;
-  text-align: left;
-  display: table-cell;
-  vertical-align: middle;
-}
-
-//投稿の中央ぞろえ
-.profile h1{
-  width: 80%;
-  margin: 0 auto;
-  max-width: 800px;
-  padding-top: 65px;
-}
-.microposts-wrap{
-  width: 80%;
-  margin: 0 auto;
-  max-width: 650px;
-}
-
-//投稿詳細画面
-.post-show{
-  margin-top: 100px;
-}
-
-//プロフィール画面のmicroposts
-.posts-index-item {
-  padding: 20px 30px;
-  background-color: white;
-  overflow: hidden;
-  background-color: #f6f6f6;
-  border-bottom: 1px solid #ccc;
-}
-
-.post-left img {
-  width: 50px;
-  height: 50px;
-  border-radius: 20%;
-  box-shadow: 0 2px 6px #c1ced7;
-  object-fit: cover;
-}
-
-.post-user-name a {
-  font-weight: 600;
-}
-
-.post-user-name a:hover {
-  color: #dda02e;
-}
-
-.post-left {
-  float: left;
-  width: 10%;
-}
-
-.post-right {
-  float: left;
-  width: 50%;
-  padding-left: 10px;
-  text-align: left;
-}
-
-//HOME画面.投稿の中央ぞろえ
-.home-upper{
-  height: 150px;
-  max-height: 150px;
-  width: 80%;
-  margin: 0 auto;
-  max-width: 800px;
-  padding-top: 65px;
-  margin-bottom: 50px;
-}
-.home-upper-left {
-  float: left;
-  width: 30%;
-  p{
-    font-size:30px;
+  
+  .user-left img {
+    width: 50px;
+    height: 50px;
+    border-radius: 40%;
+    box-shadow: 0 2px 6px #c1ced7;
+    object-fit: cover;
   }
-}
-
-.home-upper-right {
-  float: right;
-  width: 70%;
-}
-
-.field {
-  resize: none;
-  width:300px;
-  height:100px;
-}
-
-.home-user{
-}
-//いいねボタンの色
-.like-btn{
-  color: #8899a6;
-}
-.like-btn-unlike{
-  color: #ff2525;
-}
-//.posts-show-item .fa {
-  //font-size: 16px;
-  //margin-right: 3px;
-//}
+  
+  .user-name a {
+    font-weight: 600;
+  }
+  
+  .user-name a:hover {
+    color: #3ecdc6;
+  }
+  
+  .user-left {
+    float: left;
+    width: 10%;
+  }
+  
+  .user-right {
+    width: 90%;
+    padding-left: 25px;
+    text-align: left;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  //投稿の中央ぞろえ
+  .profile h1{
+    width: 80%;
+    margin: 0 auto;
+    max-width: 800px;
+    padding-top: 65px;
+  }
+  .microposts-wrap{
+    width: 80%;
+    margin: 0 auto;
+    max-width: 650px;
+  }
+  
+  //投稿詳細画面
+  .post-show{
+    margin-top: 100px;
+  }
+  
+  //プロフィール画面のmicroposts
+  .posts-index-item {
+    padding: 20px 30px;
+    background-color: white;
+    overflow: hidden;
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .post-left img {
+    width: 50px;
+    height: 50px;
+    border-radius: 20%;
+    box-shadow: 0 2px 6px #c1ced7;
+    object-fit: cover;
+  }
+  
+  .post-user-name a {
+    font-weight: 600;
+  }
+  
+  .post-user-name a:hover {
+    color: #dda02e;
+  }
+  
+  .post-left {
+    float: left;
+    width: 10%;
+  }
+  
+  .post-right {
+    float: left;
+    width: 50%;
+    padding-left: 10px;
+    text-align: left;
+  }
+  
+  //HOME画面.投稿の中央ぞろえ
+  .home-upper{
+    height: 150px;
+    max-height: 150px;
+    width: 80%;
+    margin: 0 auto;
+    max-width: 800px;
+    padding-top: 65px;
+    margin-bottom: 50px;
+  }
+  .home-upper-left {
+    float: left;
+    width: 30%;
+    p{
+      font-size:30px;
+    }
+  }
+  
+  .home-upper-right {
+    float: right;
+    width: 70%;
+  }
+  
+  .field {
+    resize: none;
+    width:300px;
+    height:100px;
+  }
+  
+  .home-user{
+  }
+  //いいねボタンの色
+  .like-btn{
+    color: #8899a6;
+  }
+  .like-btn-unlike{
+    color: #ff2525;
+  }
+  //.posts-show-item .fa {
+    //font-size: 16px;
+    //margin-right: 3px;
+  //}

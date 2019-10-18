@@ -9,8 +9,10 @@ gem 'rails', '5.2.3'
 gem 'mysql2'
 gem 'dotenv-rails'
 # Use sqlite3 as the database for Active Record
-gem 'bootstrap-sass'
-gem 'sassc', '2.2.0'
+gem 'bootstrap'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+#gem 'sassc', '2.2.1'
 #gem 'ovirt-engine-sdk-4.3.0'
 gem 'faker'
 gem 'ransack'
@@ -32,7 +34,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 
-gem 'jquery-rails'
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -83,12 +85,13 @@ group :test do
 
   gem 'launchy'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  #gem 'chromedriver-helper'
+  gem 'webdrivers'
 end
 
 group :production do
   #gem 'pg', '0.20.0'
-  gem 'fog'
+  gem 'fog-aws'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

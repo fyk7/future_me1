@@ -7,12 +7,16 @@
                                'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application',
                                'data-turbolinks-track': 'reload' %>
+
+    
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
     <%= render 'layouts/shim'%>
   </head>
   <body>
-    <%= render 'layouts/header'%>
+    <%= render 'layouts/header1'%>
     <div class="container">
     <% if flash[:notice] %>
       <div class="flash">
@@ -41,8 +45,9 @@
       </div>
     <% end %>
       <%= yield %>
-      <%= render 'layouts/footer' %>
+      
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
 
