@@ -5,12 +5,13 @@
       <img src = "<%="/user_images/#{@user.image_name}"%>">
     </div>
     <%= @user.name%>
+    
   </div>
 </div>
   <div class="microposts-wrap">
     <% if @user.microposts.any? %>
       <h3><%= @user.microposts.count %>件のコメント</h3>
-      <%= render 'shared/many_microposts' %>
+      <%= render 'shared/many_microposts2' %>
       <%= paginate @microposts %>
     <% end %>
   </div>

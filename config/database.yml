@@ -49,5 +49,5 @@ production:
   database: rails_production
   pool: 5
   username: <%= Rails.application.credentials.db[:username] %>
-  password: <%= Rails.application.credentials.db[:password] %>
+  password: 
   host: db

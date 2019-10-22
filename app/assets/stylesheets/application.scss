@@ -17,6 +17,12 @@
 
  @import "bootstrap";
 
+ //投稿画面のpadding
+
+ .form-heading{
+  padding-top: 100px;
+ }
+
  .body{
    background-color: #8899a6;
  } 
@@ -71,10 +77,6 @@
     margin-right: 28px;
   }
   
-  .facebook{
-    background-color: #3b5998;
-    margin-right: 10px;
-  }
   
   .twitter{
     background-color: #55acee;
@@ -86,10 +88,6 @@
     p{
     margin: 10px 0;
     }
-  }
-  
-  .fa{
-    margin-right: 5px;
   }
   
   //ヘッダー
@@ -195,23 +193,6 @@
     border-top-right-radius: 5px;
   }
   
-  
-  //エラー画面整形
-  #error_explanation ul{
-    list-style: none;
-    li{
-      color: rgb(255, 251, 0);
-      display: table;
-    }
-  }
-  .alert-danger{
-    color: rgb(255, 251, 0);
-    padding:0 0 -10px 0;
-  }
-  
-
- 
-  
   //ユーザー一覧中央ぞろえ
   
   .users-wrap{
@@ -286,34 +267,17 @@
   }
   
   //プロフィール画面のmicroposts
-  .posts-index-item {
-    padding: 20px 30px;
-    background-color: white;
-    overflow: hidden;
-    background-color: #f6f6f6;
-    border-bottom: 1px solid #ccc;
-  }
-  
   .post-left img {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border-radius: 20%;
     box-shadow: 0 2px 6px #c1ced7;
     object-fit: cover;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: -10px;
   }
   
-  .post-user-name a {
-    font-weight: 600;
-  }
-  
-  .post-user-name a:hover {
-    color: #dda02e;
-  }
-  
-  .post-left {
-    float: left;
-    width: 10%;
-  }
   
   .post-right {
     float: left;
@@ -328,8 +292,8 @@
     max-height: 150px;
     width: 80%;
     margin: 0 auto;
-    max-width: 800px;
-    padding-top: 65px;
+    max-width: 600px;
+    padding-top: 90px;
     margin-bottom: 50px;
   }
   .home-upper-left {

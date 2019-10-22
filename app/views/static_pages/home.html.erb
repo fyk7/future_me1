@@ -1,6 +1,12 @@
 <% if logged_in? %>
+
   <div class="home-wrap">
     <div class="home-upper">
+    <% if flash[:notice] %>
+          <div class="alert alert-success">
+            <%= flash[:notice] %>
+          </div> 
+        <% end %>
       <div class="home-upper-left">
         <%= render 'shared/user_info' %>
       </div>
@@ -10,7 +16,7 @@
     </div>
     <div class="microposts-wrap">
       <h3>最近の投稿</h3>
-      <%= render 'shared/many_microposts' %>
+      <%= render 'shared/many_microposts2' %>
       <%= paginate @microposts %>
     </div>
   </div>

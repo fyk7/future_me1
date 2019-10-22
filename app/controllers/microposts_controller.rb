@@ -5,7 +5,7 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
-      flash[:success] = "投稿しました！"
+      flash[:notice] = "投稿しました！"
       redirect_to root_url
     else
       @all_user_microposts = []
@@ -15,7 +15,7 @@ class MicropostsController < ApplicationController
 
   def destroy
     @micropost.destroy
-    flash[:success] = "投稿を削除しました！"
+    flash[:notice] = "投稿を削除しました！"
     redirect_to request.referrer || root_url
   end
 
@@ -32,20 +32,22 @@ class MicropostsController < ApplicationController
   end
 
   def rank_all
-    @microposts = Micropost.find(Like.group(:micropost_id).order('count(micropost_id) desc').limit(20).pluck(:micropost_id))
+    @microposts = Micropost.find(Like.group(:micropost_id).order('count(micropost_id) desc').limit(10).pluck(:micropost_id))
+    #@microposts = Micropost.order('likes_count desc').limit(10).pluck(:micropost_id))
   end
 
   def recruit
-    @microposts = Micropost.where(micropost_category: 4)#.find(Like.group(:micropost_id).order('count(micropost_id) desc').limit(20).pluck(:micropost_id))
+    @microposts = Micropost.where(micropost_category: 4).order(created_at: :desc).page(params[:page]).per(15)
+    #.find(Like.group(:micropost_id).order('count(micropost_id) desc').limit(20).pluck(:micropost_id))
   end
 
   def work_rookie
-    @microposts = Micropost.where(micropost_category: 5)
+    @microposts = Micropost.where(micropost_category: 5).order(created_at: :desc).page(params[:page]).per(15)
   end
 
   def search
     #Viewのformで取得したパラメータをモデルに渡す
-    @microposts = Micropost.search(params[:search_micropost]).page(params[:page]).per(25)
+    @microposts = Micropost.search(params[:search_micropost]).page(params[:page]).per(15)
   end
 
   private

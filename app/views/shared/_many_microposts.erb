@@ -30,6 +30,11 @@
       </div>
       <%= image_tag micropost.picture.url if micropost.picture? %>
         <span class="timestamp">
+
+        <div id="likes_buttons_<%= micropost.id %>">
+ <%= render partial: 'likes/like', locals: { micropost: micropost, likes: @likes} %>
+</div>
+
         ♥<%= micropost.likes.count%>
           <%= micropost.created_at%>
           <% if current_user?(micropost.user) %>

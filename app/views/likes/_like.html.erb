@@ -1,0 +1,35 @@
+<% if logged_in? %>
+
+  <% unless micropost.like_user(current_user.id).blank? %>
+    <%= link_to micropost_like_path(micropost_id: micropost.id ,id: micropost.likes[0].id), method: :delete, remote: true do %>
+      <div class="vertical_like">
+        <i class="fa fa-heart like-btn-unlike"><%= micropost.likes_count %></i>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to micropost_likes_path(micropost.id), method: :post, remote: true do %>
+      <div class="vertical_like">
+      <% if micropost.likes_count? %>
+        <i class="fa fa-heart like-btn">
+        <%= micropost.likes_count %>
+        </i>
+      <% else %>
+        <i class="fa fa-heart like-btn"></i>
+      <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
+<% else %>
+
+<% if micropost.likes_count > 0 %>
+<div class="vertical_like">
+<i class="fa fa-heart like-btn-unlike"><%= micropost.likes_count %></i>
+</div>
+<% else %>
+<div class="vertical_like">
+<i class="fa fa-heart like-btn"><%= micropost.likes_count %></i>
+</div>
+<% end %>
+
+<% end %>

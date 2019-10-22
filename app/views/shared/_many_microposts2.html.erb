@@ -16,10 +16,8 @@
       <h5 ><%= link_to(micropost.user.name, "/users/#{micropost.user.id}") %></h5>  
       <p>(<%= micropost_categorys[micropost.user.user_category] %>)</p>
     </div>
-  </div>
-        
-          
-      </div>
+    </div>
+    </div>
       <div class="col-md-9">
         <div class="card-body">
           <div class="">
@@ -27,11 +25,14 @@
             <%= link_to(micropost.content, "/microposts/#{micropost.id}") %>
             </h5>
             <h2></h2><br>
-            
             <div class="timestamp text-right">
-              ♥<%= micropost.likes.count%>
+
+            <div id="likes_buttons_<%= micropost.id %>">
+             <%= render partial: 'likes/like', locals: { micropost: micropost, likes: @likes} %>
+            </div>
+            
               <% if current_user?(micropost.user) %>
-              <%= link_to "編集", "/microposts/#{micropost.id}/edit", class: "btn-sm btn-primary" %>
+              <%#= link_to "編集", "/microposts/#{micropost.id}/edit", class: "btn-sm btn-primary" %>
               <%= link_to "削除", micropost, method: :delete,　data: { confirm: "本当に削除しますか?" }, class: "btn-sm btn-primary" %>
               <% end %>
             </div>

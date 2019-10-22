@@ -1,6 +1,6 @@
 <div class="">
-<img src = "<%="/user_images/#{@user.image_name}"%>" width="60" height="60">
+<img src = "<%="/user_images/#{@user.image_name}"%>" width="100"" height="100">
 <p><%= current_user.name %></p>
-</div>
-<%= link_to "プロフィール", current_user %>
-<%= pluralize(current_user.microposts.count, "micropost") %>
+
+<%= link_to "プロフィール", current_user %><br>
+<%= pluralize(current_user.microposts.count, "micropost") %></div>

@@ -1,21 +1,41 @@
 <%= form_for(@user, {multipart: true}) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
- 
-  <p>名前</p>
-  <p><%= f.text_field :name, class: 'form-control' %></p>
-  <p>Eメール</p>
-  <p><%= f.email_field :email, class: 'form-control' %></p>
-  <p>パスワード(6文字以上)</p>
-  <p><%= f.password_field :password, class: 'form-control' %></p>
-  <p>パスワードの確認</p>
-  <p><%= f.password_field :password_confirmation, class: 'form-control' %></p>
-  <p>年齢層</p>
-  <p><%= f.select :user_category,[["大学1~2年", 1], ["大学2~3年", 2], ["大学3~4年", 3], ["就活中", 4], ["社会人ルーキー", 5], ["社会人ミドル", 6]], class: 'form-control' %></p>
-  <% if current_user%>
-    <p>プロフィール画像の更新</p>
-    <p><%= f.file_field :image_name, class: 'form-control' %></p>
-  <% end%>
-  <p><%= f.submit yield(:button_text), class: "btn signup" %></p>
   
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-6 col-md-offset-3">
+      <%= render 'shared/error_messages', object: f.object %>
+        <div class="card">
+          <div class="card-header">
+            <h1>アカウントの新規作成</h1>
+          </div>
+          <div class="card-body">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control' %>
+
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+            
+            <%= f.label :user_category %><br>
+            <%= f.select :user_category,[["大学1~2年", 1], ["大学2~3年", 2], ["大学3~4年", 3], ["就活中", 4], ["社会人1~3年目", 5], ["社会人ミドル", 6]], class: 'form-control' %>
+            <div class="text-right">
+      　　     <%= f.submit yield(:button_text), class: "btn btn-success " %>
+      　　   </div>
+          </div>
+        </div>
+        <% if current_user%>
+          <p>プロフィール画像の更新</p>
+          <p><%= f.file_field :image_name, class: 'form-control' %></p>
+        <% end%>
+      </div>
+    </div>
+  </div>
   
 <% end %>

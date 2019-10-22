@@ -40,8 +40,8 @@
   <% end %>  
   </ul>
   <% if logged_in? %>
-  <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <form action="/search_micropost" accept-charset="UTF-8" method="get" class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search_micropost">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
   <% end%> 
