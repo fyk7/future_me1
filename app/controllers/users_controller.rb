@@ -34,13 +34,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if params[:image]
-      @user.image_name = "#{@user.id}.jpg"
-      image = params[:image_name]
-      File.binwrite("public/user_images/#{@user.image_name}",image.read)
-    end
-    if @user.save#update_attributes(user_params)
-      
+    #if params[:image]
+      #@user.image_name = "#{@user.id}.jpg"
+      #image = params[:image_name]
+      #File.binwrite("public/user_images/#{@user.image_name}",image.read)
+    #end
+    if @user.update_attributes(user_params)
       flash[:notice] = "プロフィールをアップデートしました"
       redirect_to @user
     else
@@ -66,7 +65,7 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
-        :password_confirmation, :image_name, :user_category)
+        :password_confirmation, :image_name, :user_category, :image)
     end
 
     def correct_user

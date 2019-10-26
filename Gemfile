@@ -8,7 +8,7 @@ gem 'rails', '5.2.3'
 
 gem 'mysql2'
 gem 'dotenv-rails'
-gem 'rubocop'
+#gem 'rubocop'
 # Use sqlite3 as the database for Active Record
 gem 'bootstrap'
 gem 'jquery-rails'

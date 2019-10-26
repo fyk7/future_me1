@@ -36,6 +36,10 @@ class MicropostsController < ApplicationController
     #@microposts = Micropost.order('likes_count desc').limit(10).pluck(:micropost_id))
   end
 
+  def student
+    @microposts = Micropost.where(micropost_category: [1,2,3]).order(created_at: :desc).page(params[:page]).per(15)
+  end
+
   def recruit
     @microposts = Micropost.where(micropost_category: 4).order(created_at: :desc).page(params[:page]).per(15)
     #.find(Like.group(:micropost_id).order('count(micropost_id) desc').limit(20).pluck(:micropost_id))
