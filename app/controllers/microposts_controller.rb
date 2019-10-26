@@ -54,6 +54,11 @@ class MicropostsController < ApplicationController
     @microposts = Micropost.search(params[:search_micropost]).page(params[:page]).per(15)
   end
 
+  def index
+    @q = Micropost.ransack(params[:q])
+    @microposts = @q.result(distinct: true).page(params[:page]).per(15)
+  end
+
   def hashtags
     tag = Tag.find_by(name: params[:name])
     @microposts = tag.microposts.page(params[:page]).per(15)

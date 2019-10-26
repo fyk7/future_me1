@@ -11,10 +11,12 @@
   </div>
   <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">最近の投稿</h5>
-      <h6 class="card-subtitle mb-2 text-muted">ハッシュタグの検索</h6>
-      <a href="#" class="card-link">リンク1</a>
-      <a href="#" class="card-link">リンク2</a>
+      <h5 class="card-title">話題の投稿</h5>
+      <h6 class="card-subtitle mb-2 text-muted">直近100投稿の中でいいねが多かった投稿</h6>
+      <h6 class="card-subtitle mb-2 text-muted"></h6>
+      <% @recent_microposts.each do |post|%>
+        <%= link_to(post.content, "#") %><br>
+        <% end %>
     </div>
   </div>
 <div>

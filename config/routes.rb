@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get  '/student',  to: 'microposts#student'
   get  '/recruit',  to: 'microposts#recruit'
   get  '/work_rookie',  to: 'microposts#work_rookie'
+  get '/sort-micropost',  to: 'microposts#index'
   get '/search_micropost',  to: 'microposts#search'
   get '/search_user',  to: 'users#search'
   #post "likes/:micropost_id/create" => "likes#create"
