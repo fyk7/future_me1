@@ -1,4 +1,6 @@
 class Micropost < ApplicationRecord
+  has_and_belongs_to_many :tags
+
   belongs_to :user
   has_many :likes, dependent: :destroy
   #default_scope -> { order(created_at: :desc)}
@@ -10,6 +12,27 @@ class Micropost < ApplicationRecord
     def like_user(user_id)
       likes.find_by(user_id: user_id)
     end
+
+    after_create do
+      micropost = Micropost.find_by(id: self.id)
+      hashtags  = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+      hashtags.uniq.map do |hashtag|
+        tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
+        micropost.tags << tag
+      end
+    end
+  
+    before_update do 
+      micropost = Micropost.find_by(id: self.id)
+      micropost.hashtags.clear
+      hashtags = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+      hashtags.uniq.map do |hashtag|
+        tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
+        micropost.tags << tag
+      end
+    end
+
+    
 
   private
     def picture_size
@@ -25,6 +48,9 @@ class Micropost < ApplicationRecord
         Micropost.all
       end
     end
+
+
+    
 
     
 end

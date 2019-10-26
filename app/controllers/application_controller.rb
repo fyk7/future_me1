@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
+  before_action :set_tags
   
   def search
     #Viewのformで取得したパラメータをモデルに渡す
@@ -16,4 +17,12 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+
+  def set_tags
+    if logged_in?
+      @tag_all_pages = Tag.all
+    end
+  end
+
+
 end

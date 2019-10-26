@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user.image_name = "default_user.png"#デフォルトプロフィール
     if @user.save
       log_in(@user)
-      flash[:success] = "Future⇀meへようこそ！"
+      flash[:notice] = "Future⇀meへようこそ！"
       redirect_to user_url(@user)
     else
       render 'new'
@@ -34,15 +34,14 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-
     if params[:image]
       @user.image_name = "#{@user.id}.jpg"
-      image = params[:image]
+      image = params[:image_name]
       File.binwrite("public/user_images/#{@user.image_name}",image.read)
     end
-
     if @user.save#update_attributes(user_params)
-      flash[:success] = "プロフィールをアップデートしました"
+      
+      flash[:notice] = "プロフィールをアップデートしました"
       redirect_to @user
     else
       render 'edit'
@@ -51,7 +50,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:notice] = "User deleted"
     redirect_to users_url
   end
 

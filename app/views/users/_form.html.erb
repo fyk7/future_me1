@@ -1,5 +1,4 @@
 <%= form_for(@user, {multipart: true}) do |f| %>
-  
   <div class="container">
     <div class="row">
       <div class="col-md-3">
@@ -8,7 +7,7 @@
       <%= render 'shared/error_messages', object: f.object %>
         <div class="card">
           <div class="card-header">
-            <h1>アカウントの新規作成</h1>
+            <h1><%= yield(:button_text) %></h1>
           </div>
           <div class="card-body">
             <%= f.label :name %>
@@ -32,7 +31,7 @@
         </div>
         <% if current_user%>
           <p>プロフィール画像の更新</p>
-          <p><%= f.file_field :image_name, class: 'form-control' %></p>
+          <p><%= f.file_field :image, class: 'form-control' %></p>
         <% end%>
       </div>
     </div>

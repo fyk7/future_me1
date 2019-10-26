@@ -4,27 +4,56 @@
 <% @user.errors.full_messages.each do |message| %>
   <div class="form-error">
     <%= message %>
-  </div>
-<% end %>
-<h1>プロフィール編集</h1>
-<div class="user-left">
+    </div>
+  <% end %>
+  <h1>プロフィール編集</h1>
   <div class="user-left">
-    <img src = "<%="/user_images/#{@user.image_name}"%>">
-    <%= @user.name%>
-  </div>
-</div>
-
-  <div class="form users-form">
-    <div class="form-body">
-    <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
-      <p>ユーザー名</p>
-      <input name="name" value="<%= @user.name %>">
-      <p>画像</p>
-      <input name="image" type="file">
-      <p>メールアドレス</p>
-      <input name="email" value="<%= @user.email %>">
-      <input type="submit" value="保存">
-    <% end %>
+    <div class="user-left">
+      <img src = "<%="/user_images/#{@user.image_name}"%>">
+      
     </div>
   </div>
+  <%= @user.name%>
 </div>
+
+<%= form_for(@user, {multipart: true}) do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="">
+      <%= render 'shared/error_messages', object: f.object %>
+        <div class="card">
+          <div class="card-header">
+            <h1><%= yield(:button_text) %></h1>
+          </div>
+          <div class="card-body">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control' %>
+
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+            
+            <%= f.label :user_category %><br>
+            <%= f.select :user_category,[["大学1~2年", 1], ["大学2~3年", 2], ["大学3~4年", 3], ["就活中", 4], ["社会人1~3年目", 5], ["社会人ミドル", 6]], class: 'form-control' %>
+            <div class="text-right">
+      　　     <%= f.submit yield(:button_text), class: "btn btn-success " %>
+      　　   </div>
+          </div>
+        </div>
+        <% if current_user%>
+          <p>プロフィール画像の更新</p>
+          <p><%#= f.file_field :image, class: 'form-control' %></p>
+          <p>画像</p>
+      <input name="image" type="file">
+      <input type="submit" value="保存">
+        <% end%>
+      </div>
+    </div>
+  </div>
+  
+<% end %>

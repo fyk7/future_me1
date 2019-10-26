@@ -1,0 +1,21 @@
+<div class='mx-auto' style="width: 250px;">
+<div class="row sidebar-right">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">ハッシュタグ</h5>
+      <h6 class="card-subtitle mb-2 text-muted">キーワード</h6>
+      <% @tag_all_pages.each do |tag_all_pages|%>
+      <%= link_to(tag_all_pages.name, "/microposts/hashtag/#{tag_all_pages.name}") %>
+      <% end %>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">最近の投稿</h5>
+      <h6 class="card-subtitle mb-2 text-muted">ハッシュタグの検索</h6>
+      <a href="#" class="card-link">リンク1</a>
+      <a href="#" class="card-link">リンク2</a>
+    </div>
+  </div>
+<div>
+<div>

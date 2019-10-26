@@ -18,20 +18,26 @@
     <%= render 'layouts/header1'%>
       <% if logged_in? %>
       <div class="row no-gutters">
-        <div class="col-md-2 d-none d-md-block">
-        <%= render 'layouts/sidebar'%>
+        <div class="col-md-3 d-none d-md-block">
+          <%= render 'layouts/sidebar'%>
         </div>
-        <div class="col-md-8">
-        <% if flash[:notice] %>
-          <div class="flash">
-            <%= flash[:notice] %>
-          </div> 
-        <% end %>
-        <%= yield %>
+          <div class="col-md-6">
+       　   <div class="home-wrap"> 
+              <% if flash[:notice] %>
+                <div class="alert alert-success alert-dismissible fade show">
+                  <%= flash[:notice] %>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="閉じる">
+                  <span aria-hidden="true">&times;</span>
+      　          </button>
+                </div> 
+              <% end %>
+              <%= yield %>
+　　　　　    </div>
+          </div>
+          <div class="col-md-3 d-none d-md-block">
+            <%= render 'layouts/sidebar-right'%>
+          </div>
         </div>
-        <div class="col-md-2 d-none d-md-block">
-        </div>
-      </div>
       <% else %>
         <%= yield %>
       <% end %>

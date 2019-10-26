@@ -1,10 +1,4 @@
-<div class="microposts-wrap">
-<p>検索結果</p>
-<%= form_tag(search_micropost_path,:method => 'get') do %>
-  <%= text_field_tag :search_micropost %>
-  <%= submit_tag 'Search', :name => nil %>
-<% end %>
-</div>
+
 
 <div class="microposts-wrap">
     <h3><%= @microposts.count %>件の検索結果</h3>
