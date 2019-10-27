@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   def set_microposts
     if logged_in?
       recent_micropost = Micropost#.order(created_at: :desc).limit(100)
-      @recent_microposts = recent_micropost.order(likes_count: :desc).limit(7)
+      @recent_microposts = recent_micropost.order(likes_count: :desc).limit(5)
     end
   end
 

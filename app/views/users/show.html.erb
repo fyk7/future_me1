@@ -8,10 +8,30 @@
     
   </div>
 </div>
-  <div class="microposts-wrap">
-    <% if @user.microposts.any? %>
-      <h3><%= @user.microposts.count %>件のコメント</h3>
-      <%= render 'shared/many_microposts2' %>
-      <%= paginate @microposts %>
+
+<% if @user.id == current_user.id %>
+
+<% else %>
+  <% if @isRoom == true %>
+    <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+  <% else %>
+    <%= form_for @room do |f| %>
+      <%= fields_for @entry do |e| %>
+        <%= e.hidden_field :user_id, :value=> @user.id %>
+      <% end %>
+      <%= f.submit "チャットを始める" %>
     <% end %>
-  </div>
+  <% end %>
+<% end %>
+
+<%= link_to "ユーザー一覧に戻る", users_path %>
+
+<div class="microposts-wrap">
+  <% if @user.microposts.any? %>
+    <h3><%= @user.microposts.count %>件のコメント</h3>
+    <%= render 'shared/many_microposts2' %>
+    <%= paginate @microposts %>
+  <% end %>
+</div>
+
+

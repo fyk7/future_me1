@@ -1,8 +1,8 @@
 <%= search_form_for @q do |f| %>
-  <%= f.label :content, "Keyword" %>
+  <%= f.label :content, "投稿キーワード" %>
   <%= f.search_field :content_cont %><br>
 
-  <%= f.label :micropost_category %>
+  <%= f.label :投稿カテゴリー %>
   <%= f.radio_button :micropost_category_eq, '', {:checked => true} %>指定なし
   <%= f.radio_button :micropost_category_eq, 1 %>大学1~2年
   <%= f.radio_button :micropost_category_eq, 2 %>大学2~3年
@@ -18,69 +18,20 @@
   <%= f.submit "検索" %>
 　<% end %>
 
-<tr>
-  <th><%= sort_link(@q, :created_at, "投稿順") %></th>
-  <th><%= sort_link(@q, :micropost_category, "カテゴリー") %></th>
-  <th><%= sort_link(@q, :likes_count, "いいね") %></th>
-  <th colspan="3"></th>
-</tr> 
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="card">
+        <%= sort_link(@q, :created_at, "投稿順") %>
+      </li>
 
-
-
-<% @microposts.each do |micropost| %>
-  <div class="card mb-3" style="max-width: 600px;">
-    <div class="card-header text-center">
-      <% micropost_categorys = {1=>"大学1~2年", 2=>"大学2~3年", 3=>"大学3~4年",
-       4=>"就活中", 5=>"社会人ルーキー", 6=>"社会人ミドル"} %>
-      <%= micropost_categorys[micropost.user.user_category] %>
-      => <%= micropost_categorys[micropost.micropost_category] %>
-    </div>
-    <div class="row no-gutters">
-      <div class="col-md-3">
-      <div class="card">
-      <div class="post-left">
-        <% if micropost.user.image? %>
-        <%= image_tag micropost.user.image.url  %>
-        <% else %>
-        <img src="/user_images/default_user.png", width="100"" height="100">
-        <% end %>
-        </div>
-    <div class="card-body">
-      <h5 ><%= link_to(micropost.user.name, "/users/#{micropost.user.id}") %></h5>  
-      <p>(<%= micropost_categorys[micropost.user.user_category] %>)</p>
-    </div>
-    </div>
-    </div>
-      <div class="col-md-9">
-        <div class="card-body">
-          <div class="">
-            <h5 class="card-title">
-            <%#= link_to(micropost.content, "/microposts/#{micropost.id}") %>
-            <%#= micropost.content %>
-            <%= render_with_hashtags(micropost.content)%>
-            </h5>
-            <h2></h2><br>
-            <div class="timestamp text-right">
-
-            <div id="likes_buttons_<%= micropost.id %>">
-             <%= render partial: 'likes/like', locals: { micropost: micropost, likes: @likes} %>
-            </div>
-            
-              <% if current_user?(micropost.user) %>
-              <%#= link_to "編集", "/microposts/#{micropost.id}/edit", class: "btn-sm btn-primary" %>
-              <%= link_to "削除", micropost, method: :delete,　data: { confirm: "本当に削除しますか?" }, class: "btn-sm btn-primary" %>
-              <% end %>
-            </div>
-          </div>
-          <p class="card-text text-right"><small class="text-muted"><%= micropost.created_at%> </small></p>
-        </div>
-      </div>
-    </div>
-    <% if micropost.picture? %>
-    <div class="card-footer text-center">
-    <%= image_tag micropost.picture.url if micropost.picture? %>
-    </div>
-    <% end %>
+      <li class="card">
+        <%= sort_link(@q, :likes_count, "いいね順") %>
+      </li>
+    </ul>
   </div>
-<% end %>
+  <div class="card-body">
+    <%= render 'shared/many_microposts2' %>
+  </div>
+</div>
 <%= paginate @microposts %>
