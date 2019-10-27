@@ -8,7 +8,10 @@ gem 'rails', '5.2.3'
 
 gem 'mysql2'
 gem 'dotenv-rails'
-#gem 'rubocop'
+gem 'rubocop'
+gem 'rails_autolink'
+gem 'chartkick'
+gem 'impressionist'
 # Use sqlite3 as the database for Active Record
 gem 'bootstrap'
 gem 'jquery-rails'
@@ -67,6 +70,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec'
+
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
@@ -77,7 +82,7 @@ group :test do
   gem 'minitest-reporters',       '1.1.14'
   gem 'guard',                    '2.13.0'
   gem 'guard-minitest',           '2.4.4'
-  gem 'rspec-rails'
+  
   gem 'factory_bot_rails'
   #gem 'faker'
   # Adds support for Capybara system testing and selenium driver
@@ -88,6 +93,10 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   #gem 'chromedriver-helper'
   gem 'webdrivers'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~>3.6.0'
 end
 
 group :production do
