@@ -1,5 +1,6 @@
 require 'rails_helper'
-describe 'いいね機能', type: :system, js: true do
+
+describe 'いいね機能', type: :system do
   let!(:user_a) { FactoryBot.create(:user) }
   let!(:user_b) { FactoryBot.create(:user) }
   let!(:micropost_a) { FactoryBot.create(:micropost, user_id: user_a.id) }
@@ -10,34 +11,28 @@ describe 'いいね機能', type: :system, js: true do
     fill_in 'password', with: user_a.password
     click_button 'ログイン'
   end
+  
   context ' ツイートが自分のものではないとき ' do
     before do
       visit root_path
     end
-    context 'いいねボタンを押していないとき' do
-      it 'いいねボタンを押せること' do
-        expect(page).to have_css '.like-btn'
-        first('.like-btn').click
-        expect(page).to have_css '.like-btn-unlike'
-      end
-    end
-    context 'いいねボタンを押しているとき' do
-      before do
-        first('.like-btn').click
-      end
-      it 'いいねの解除ができること' do
-        expect(page).to have_css '.like-btn-unlike'
-        first('.like-btn-unlike').click
-        expect(page).to have_css '.like-btn'
-      end
-    end
-  end
-  #context 'ツイートが自分のもののとき' do
-    #before do
-      #visit "/tweets/#{tweet_a.id}"
-   # end
-   # it 'いいねボタンが表示されないこと' do
-   #   expect(page).not_to have_css '.likebtn'
+    #context 'いいねボタンを押していないとき' do
+      #it 'いいねボタンを押せること' do
+       # expect(page).to have_selector '.like-btn'
+       # page.first('.like-btn').click
+        #expect(page).to have_selector '.like-btn-unlike'
+      #end
     #end
-  #end
+    #context 'いいねボタンを押しているとき' do
+     # before do
+        #first('.like-btn').click
+      #end
+      #it 'いいねの解除ができること' do
+        #expect(page).to have_css '.like-btn-unlike'
+        #first('.like-btn-unlike').click
+        #expect(page).to have_css '.like-btn'
+      #end
+    #end
+  end
+
 end
