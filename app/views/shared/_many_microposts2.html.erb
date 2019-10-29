@@ -28,7 +28,8 @@
             <h5 class="card-title">
             <%#= link_to(micropost.content, "/microposts/#{micropost.id}") %>
             <%#= micropost.content %>
-            <%= render_with_hashtags(micropost.content)%>
+            <%= raw Rinku.auto_link(render_with_hashtags(micropost.content)) %>
+            <%#= render_with_hashtags(micropost.content)%>
             </h5>
             <h2></h2><br>
             <div class="timestamp text-right">
