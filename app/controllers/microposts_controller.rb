@@ -36,21 +36,20 @@ class MicropostsController < ApplicationController
     #@microposts = Micropost.order('likes_count desc').limit(10).pluck(:micropost_id))
   end
 
-  def student
-    @microposts = Micropost.where(micropost_category: [1,2,3]).order(created_at: :desc).page(params[:page]).per(15)
-  end
+  #def student
+    #@microposts = Micropost.where(micropost_category: [1,2,3]).order(created_at: :desc).page(params[:page]).per(15)
+  #end
 
-  def recruit
-    @microposts = Micropost.where(micropost_category: 4).order(created_at: :desc).page(params[:page]).per(15)
-    #.find(Like.group(:micropost_id).order('count(micropost_id) desc').limit(20).pluck(:micropost_id))
-  end
+  #def recruit
+    #@microposts = Micropost.where(micropost_category: 4).order(created_at: :desc).page(params[:page]).per(15)
+  #end
 
-  def work_rookie
-    @microposts = Micropost.where(micropost_category: 5).order(created_at: :desc).page(params[:page]).per(15)
-  end
-
+  #def work_rookie
+    #@microposts = Micropost.where(micropost_category: 5).order(created_at: :desc).page(params[:page]).per(15)
+  #end
+  
+  #Viewのformで取得したパラメータをモデルに渡す
   def search
-    #Viewのformで取得したパラメータをモデルに渡す
     @microposts = Micropost.search(params[:search_micropost]).page(params[:page]).per(15)
   end
 

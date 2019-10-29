@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :set_microposts
   
   def search
-    #Viewのformで取得したパラメータをモデルに渡す
+    #Viewのformで取得したパラメータをモデルに渡す(出来ればransack化)
     @posts = Micropost.search(params[:search])
   end
 

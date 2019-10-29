@@ -9,7 +9,11 @@ gem 'rails', '5.2.3'
 gem 'mysql2'
 gem 'dotenv-rails'
 gem 'rubocop'
+gem 'rails-i18n', '~> 5.1'
+
 gem 'rails_autolink'
+gem 'rinku'
+
 gem 'chartkick'
 gem 'impressionist'
 # Use sqlite3 as the database for Active Record
@@ -84,7 +88,6 @@ group :test do
   gem 'guard-minitest',           '2.4.4'
   
   gem 'factory_bot_rails'
-  #gem 'faker'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
@@ -96,11 +99,10 @@ group :test do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~>3.6.0'
+  gem 'rspec-rails', '~>3.8.0'
 end
 
 group :production do
-  #gem 'pg', '0.20.0'
   gem 'fog-aws'
 end
 

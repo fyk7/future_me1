@@ -1,13 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it 'validかどうか' do
+  pending "add some examples to (or delete) #{__FILE__}"
+  it '名前、email、パスワードがあれば有効' do
     user1 = User.new(name: "Example User", email: "user@example.com",
                      password: "foobar", password_confirmation: "foobar")
     expect(user1).to be_valid
   end
 
-  it 'nameが記入されているか？' do
+  it '名前が記入されているか？' do
     user2 = User.new(name: "", email: "user@example.com",
                      password: "foobar", password_confirmation: "foobar")
     expect(user2).to_not be_valid
@@ -26,7 +27,6 @@ RSpec.describe User, type: :model do
     valid_addresses.each do |valid_address|
       user4.email = valid_address
       expect(user4).to_not be_valid
-      #assert user.valid?, "#{valid_address.inspect} should be valid"
     end
   end  
 
@@ -55,11 +55,10 @@ RSpec.describe User, type: :model do
     expect(user7).to_not be_valid
   end
 
-  it 'passwordが存在しているか？' do
+  it 'passwordは6文字以上を満たさなくてはならない' do
     user8 = User.new
     user8.password = user8.password_confirmation = "a"* 5
     expect(user8).to_not be_valid
   end
 
 end
-

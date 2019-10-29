@@ -1,6 +1,5 @@
 class Micropost < ApplicationRecord
   has_and_belongs_to_many :tags
-
   belongs_to :user
   has_many :likes, dependent: :destroy
   #default_scope -> { order(created_at: :desc)}
@@ -33,7 +32,6 @@ class Micropost < ApplicationRecord
     end
 
     
-
   private
     def picture_size
       if picture.size > 5.megabyte
@@ -49,8 +47,5 @@ class Micropost < ApplicationRecord
       end
     end
 
-
-    
-
-    
+   
 end

@@ -74,10 +74,10 @@ class UsersController < ApplicationController
   def likes
   end
 
-  def search
+  #def search
     #Viewのformで取得したパラメータをモデルに渡す
-    @users = User.search(params[:search_user]).page(params[:page]).per(25)
-  end
+    #@users = User.search(params[:search_user]).page(params[:page]).per(25)
+  #end
 
   private
 
