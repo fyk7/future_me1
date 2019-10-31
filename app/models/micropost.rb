@@ -1,5 +1,5 @@
 class Micropost < ApplicationRecord
-  has_and_belongs_to_many :tags
+  has_and_belongs_to_many :tags, dependent: :destroy
   belongs_to :user
   has_many :likes, dependent: :destroy
   #default_scope -> { order(created_at: :desc)}
@@ -16,7 +16,7 @@ class Micropost < ApplicationRecord
       micropost = Micropost.find_by(id: self.id)
       hashtags  = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
       hashtags.uniq.map do |hashtag|
-        tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
+        tag = Tag.find_or_create_by(name: hashtag.downcase)#.delete('#').delete('＃'))
         micropost.tags << tag
       end
     end
@@ -26,7 +26,7 @@ class Micropost < ApplicationRecord
       micropost.hashtags.clear
       hashtags = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
       hashtags.uniq.map do |hashtag|
-        tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
+        tag = Hashtag.find_or_create_by(hashname: hashtag.downcase)#.delete('#').delete('＃'))
         micropost.tags << tag
       end
     end
