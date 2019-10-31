@@ -34,7 +34,7 @@ describe '投稿機能', type: :system do
     end
   end
   
-  context '新規作成機能' do
+  context '投稿新規作成機能' do
     let(:login_user){user_a}
 
     before do
@@ -58,5 +58,32 @@ describe '投稿機能', type: :system do
         expect(page).to have_selector '.alert-danger', text: '投稿内容を記入してください!'
       end
     end
+  end
+
+  context '投稿削除機能' do
+
+    context 'ログインしているユーザー自身なら投稿を削除できる' do
+      let(:login_user){user_a}
+      before do
+        visit root_path
+      end
+
+      it 'ユーザーa自身の投稿が削除できる' do
+        page.first('#delete').click
+        expect(page).to have_selector '.alert-success', text: '投稿を削除しました！'
+      end
+    end
+
+    context 'ログインしていないユーザーは削除できない' do
+      let(:login_user){user_a}
+      before do
+        visit root_path
+      end
+
+      #it 'ユーザーbはユーザーaの投稿を削除できない' do
+        #expect(page).to_not have_selector '#delete'
+      #end
+    end
+
   end
 end

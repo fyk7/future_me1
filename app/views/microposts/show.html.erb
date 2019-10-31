@@ -2,36 +2,15 @@
   <div class="microposts-wrap">
     <div class="posts-index-item">
       <div class="post-left">
-        <%#= gravatar_for(@micropost.user) %>
-        <img src = "<%="/user_images/#{@user.image_name}"%>">
-      </div>
-      <div class="post-right">
-      <div class="post-user-name">
-      <%= link_to(@user.name, "/users/#{@user.id}") %>
-      </div>
-        <%= @micropost.content %>
-      </div>
-      <div class="post-time">
-        <%= @micropost.created_at %>
-      </div>
-
-      <% if Like.find_by(user_id: current_user.id, micropost_id: @micropost.id) %>
-        <%= link_to( "/likes/#{@micropost.id}/destroy", {method: "post"}) do%>
-          <span class="fa fa-heart like-btn-unlike">いいね!</span>
+        <% if @user.image?%>
+        <%= image_tag @user.image.url, :size =>'120x120' %>
+        <% else %>
+        <img src = "<%="/user_images/#{@user.image_name}"%>" width="120"" height="120">
         <% end %>
-      <% else %>
-        <%= link_to("/likes/#{@micropost.id}/create", {method: "post"}) do%>
-          <span class="fa fa-heart like-btn">いいね!する</span>
-        <% end %>
-      <% end %>
-      <%= @likes_count%>
-
-      <% if current_user?(@micropost.user) %>
-        <div class="post-menus">
-          <%= link_to("編集", "/microposts/#{@micropost.id}/edit") %>
-          <%= link_to("削除", "/microposts/#{@micropost.id}/destroy", {method: "post"}) %>
-        </div>
-      <% end %>
+      </div>
     </div>
+    <h3>最近の投稿</h3>
+    <%= render 'shared/many_microposts2' %>
+    <%= @microposts.content%>
   </div>
 </div>

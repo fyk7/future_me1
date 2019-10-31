@@ -29,19 +29,22 @@
             <%= raw Rinku.auto_link(render_with_hashtags(micropost.content)) %>
             </h5><br>
             <div class="timestamp text-right">
-
-            <div id="likes_buttons_<%= micropost.id %>">
-             <%= render partial: 'likes/like', locals: { micropost: micropost, likes: @likes} %>
-            </div>
-            
-              <% if current_user?(micropost.user) %>
-              <%#= link_to "編集", "/microposts/#{micropost.id}/edit", class: "btn-sm btn-primary" %>
-              <%= link_to "削除", micropost, method: :delete,　data: { confirm: "本当に削除しますか?" }, class: "btn-sm btn-primary" %>
-              <% end %>
+              <div class="row  justify-content-end">
+                <div id="likes_buttons_<%= micropost.id %>">
+                <%= render partial: 'likes/like', locals: { micropost: micropost, likes: @likes} %>
+                </div>
+                <div>
+              　<%= link_to "詳細", "/microposts/#{micropost.id}", class: "btn-sm btn-success" %>
+                <% if current_user?(micropost.user) %>
+                <%= link_to "削除", micropost, method: :delete,　data: { confirm: "本当に削除しますか?" }, class: "btn-sm btn-primary", id: 'delete' %>
+                <% end %>
+                </div>
+              </div>
             </div>
           </div>
           <p class="card-text text-right"><small class="text-muted"><%= micropost.created_at%> </small></p>
         </div>
+        
       </div>
     </div>
     <% if micropost.picture? %>

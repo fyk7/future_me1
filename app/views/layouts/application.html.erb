@@ -18,7 +18,7 @@
     <%= render 'layouts/header1'%>
       <% if logged_in? %>
       <div class="row no-gutters">
-        <div class="col-md-3 d-none d-md-block">
+        <div class="col-md-3 d-none d-md-block ">
           <%= render 'layouts/sidebar'%>
         </div>
           <div class="col-md-6">
@@ -41,8 +41,9 @@
               <% end %>
               <%= yield %>
 　　　　　    </div>
+            
           </div>
-          <div class="col-md-3 d-none d-md-block ">
+          <div class="col-md-3 d-md-block ">
             <%= render 'layouts/sidebar-right'%>
           </div>
         </div>
@@ -50,6 +51,7 @@
         <%= yield %>
       <% end %>
   </body>
+  
 </html>
 
 

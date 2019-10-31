@@ -26,6 +26,18 @@
         <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item" %>
       </div>
     </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        メニュー
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="/rank_all"><i class="fas fa-address-card"></i>全体ランキング</a>
+        <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#"><i class="fas fa-home"></i>トークルーム</a>
+        <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="/sort-micropost"><i class="fas fa-map-pin"></i>投稿詳細検索</a>
+      </div>
+    </li>
   <% else %>
     <li class="nav-item active">
       <%= link_to "What's Future⇀me？", about_path, class: "nav-link" %><span class="sr-only">(current)</span>
@@ -41,7 +53,7 @@
   </ul>
   <% if logged_in? %>
   <form action="/search_micropost" accept-charset="UTF-8" method="get" class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search_micropost">
+    <input class="form-control mr-sm-2" type="text" placeholder="投稿の検索" aria-label="Search" name="search_micropost">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
   <% end%> 

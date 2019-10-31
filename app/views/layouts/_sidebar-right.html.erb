@@ -1,7 +1,7 @@
-<div class='mx-auto' style="width: 250px;">
+<div class='mx-auto sticky-top' style="width: 250px;">
 <div class="row sidebar-right">
   <div class="card" style="width: 18rem;">
-    <div class="card-body">
+    <div class="card-body sidebar-right-color">
       <h5 class="card-title">ハッシュタグ</h5>
       <h6 class="card-subtitle mb-2 text-muted">キーワード</h6>
       <% @tag_all_pages.each do |tag_all_pages|%>
@@ -10,8 +10,8 @@
     </div>
   </div>
   <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">話題の投稿</h5>
+    <div class="card-body sidebar-right-color">
+      <h5 class="card-title　">話題の投稿</h5>
       <h6 class="card-subtitle mb-2 text-muted">直近100投稿の中でいいねが多かった投稿</h6>
       <h6 class="card-subtitle mb-2 text-muted"></h6>
       <% @recent_microposts.each do |post|%>
