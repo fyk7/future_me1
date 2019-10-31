@@ -9,7 +9,7 @@ class MicropostsController < ApplicationController
       redirect_to root_url
     else
       @micropost_form  = current_user.microposts.build
-      @microposts = Micropost.all.order(created_at: :desc).page(params[:page]).per(15)
+      @microposts = Micropost.all.includes(:user).order(created_at: :desc).page(params[:page]).per(15)
       @user = current_user
       flash[:danger] = "投稿内容を記入してください!"
       #render 'static_pages/home' <=こちらだとなぜか/micropostにレンダリングされる！！
