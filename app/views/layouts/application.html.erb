@@ -31,6 +31,14 @@
       　          </button>
                 </div> 
               <% end %>
+              <% if flash[:danger] %>
+                <div class="alert alert-danger alert-dismissible fade show">
+                  <%= flash[:danger] %>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="閉じる">
+                  <span aria-hidden="true">&times;</span>
+      　          </button>
+                </div> 
+              <% end %>
               <%= yield %>
 　　　　　    </div>
           </div>

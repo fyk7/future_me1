@@ -8,8 +8,12 @@ class MicropostsController < ApplicationController
       flash[:notice] = "投稿しました！"
       redirect_to root_url
     else
-      @all_user_microposts = []
-      render 'static_pages/home'
+      @micropost_form  = current_user.microposts.build
+      @microposts = Micropost.all.order(created_at: :desc).page(params[:page]).per(15)
+      @user = current_user
+      flash[:danger] = "投稿内容を記入してください!"
+      #render 'static_pages/home' <=こちらだとなぜか/micropostにレンダリングされる！！
+      redirect_to root_url
     end
   end
 
