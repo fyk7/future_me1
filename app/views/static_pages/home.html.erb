@@ -20,7 +20,11 @@
     <h2>未来の"自分"からアドバイスをGETしよう！</h2>
     <div class="btn-wrapper">
 　  <a><%= link_to "新規登録はこちら", signup_path, class: "btn1 signup" %></a>
-    <a><%= link_to "お試しログイン", login_path, class: "btn1 signup-test" %></a>
+    <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.hidden_field :email, {value: 'test@testuser1.com'} %>
+      <%= f.hidden_field :password, {value: 'password'} %>
+      <%= f.submit "簡単ログイン", class: "btn1 signup-test" %>
+    <% end %>
     <p>or sign up with</p>
     <a class="btn1 twitter" href="#">
       <span class="fa fa-twitter"></span>
