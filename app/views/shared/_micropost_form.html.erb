@@ -1,7 +1,7 @@
 <%= form_for(@micropost_form) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-controll">
-    <%= f.text_area :content, class: "form-controll col-10",rows: "4" , placeholder: "過去の自分にアドバイスをつぶやこう！..." %>
+    <%= f.text_area :content, class: "form-controll col-10 content", id: 'content', rows: "4" , placeholder: "過去の自分にアドバイスをつぶやこう！..." %>
   </div>画像の投稿
   <%= f.file_field :picture, class: "btn btn-light", accept: 'image/jpeg,image/gif,image/png' %><br>
     投稿対象 =>
@@ -9,7 +9,6 @@
     ["就活中", 4], ["社会人ルーキー", 5], ["社会人ミドル", 6]] %>
     <%= f.submit "投稿", class: "btn btn-primary" %>
     </span>
-    
 <% end %>
 
 
