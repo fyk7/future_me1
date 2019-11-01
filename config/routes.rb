@@ -18,10 +18,9 @@ Rails.application.routes.draw do
   get '/sort-micropost',  to: 'microposts#index'
   get '/search_micropost',  to: 'microposts#search'
   get '/search_user',  to: 'users#search'
-  #post "likes/:micropost_id/create" => "likes#create"
-  #post "likes/:micropost_id/destroy" => "likes#destroy"
   resources :microposts do
     resources :likes, only: [:create, :destroy]
+    resources :comments
   end
   get "users/:id/likes" => "users#likes"
   get '/microposts/hashtag/:name', to: "microposts#hashtags"

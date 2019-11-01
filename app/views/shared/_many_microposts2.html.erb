@@ -34,6 +34,9 @@
                 <%= render partial: 'likes/like', locals: { micropost: micropost, likes: @likes} %>
                 </div>
                 <div>
+                  <a href="<%="/microposts/#{micropost.id}"%>"><i class="fa fa-comment-dots"></i><%= micropost.comments.count%></a>
+                </div>
+                <div>
               　<%= link_to "詳細", "/microposts/#{micropost.id}", class: "btn-sm btn-success" %>
                 <% if current_user?(micropost.user) %>
                 <%= link_to "削除", micropost, method: :delete,　data: { confirm: "本当に削除しますか?" }, class: "btn-sm btn-primary", id: 'delete' %>
