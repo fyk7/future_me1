@@ -14,8 +14,8 @@
       <h5 class="card-title　">話題の投稿</h5>
       <h6 class="card-subtitle mb-2 text-muted">直近100投稿の中でいいねが多かった投稿</h6>
       <h6 class="card-subtitle mb-2 text-muted"></h6>
-      <% @recent_microposts.each do |post|%>
-        <%= link_to(post.content, "#") %><br>
+      <% @recent_microposts.each do |micropost|%>
+        <%= link_to(micropost.content, "/microposts/#{micropost.id}") %><br>
         <% end %>
     </div>
   </div>
