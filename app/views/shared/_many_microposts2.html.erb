@@ -19,6 +19,17 @@
     <div class="card-body">
       <h5 ><%= link_to(micropost.user.name, "/users/#{micropost.user.id}") %></h5>  
       <p>(<%= micropost_categorys[micropost.user.user_category] %>)</p>
+      <section class="stats">
+        <% user ||= current_user %>
+        <div class="stats">
+          <a href="<%= followers_user_path(micropost.user) %>">
+            <strong id="followers" class="stat">
+              <%= micropost.user.followers.count %>
+            </strong>
+            フォロワー
+          </a>
+        </div>
+      </section>
     </div>
     </div>
     </div>
@@ -39,7 +50,7 @@
                 <div>
               　<%= link_to "詳細", "/microposts/#{micropost.id}", class: "btn-sm btn-success" %>
                 <% if current_user?(micropost.user) %>
-                <%= link_to "削除", micropost, method: :delete,　data: { confirm: "本当に削除しますか?" }, class: "btn-sm btn-primary", id: 'delete' %>
+                <%= link_to "削除", micropost, method: :delete,　data: { confirm: "本当に削除しますか?" }, class: "btn-sm btn-danger", id: 'delete' %>
                 <% end %>
                 </div>
               </div>

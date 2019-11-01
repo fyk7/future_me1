@@ -18,16 +18,6 @@
     </li>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        設定
-      </a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <%= link_to "プロフィール編集", edit_user_path(current_user), class: "dropdown-item" %>
-        <div class="dropdown-divider"></div>
-        <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item" %>
-      </div>
-    </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         メニュー
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -36,6 +26,16 @@
       <a class="dropdown-item" href="#"><i class="fas fa-home"></i>トークルーム</a>
         <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="/sort-micropost"><i class="fas fa-map-pin"></i>投稿詳細検索</a>
+      </div>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        設定
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <%= link_to "プロフィール編集", edit_user_path(current_user), class: "dropdown-item" %>
+        <div class="dropdown-divider"></div>
+        <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item" %>
       </div>
     </li>
   <% else %>
