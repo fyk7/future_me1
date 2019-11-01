@@ -7,6 +7,7 @@ class Micropost < ApplicationRecord
   validates :user_id, presence: true
   validates :content, presence: true, length: {maximum: 200}
   validate  :picture_size
+  has_many :comments, dependent: :destroy
 
     def like_user(user_id)
       likes.find_by(user_id: user_id)
