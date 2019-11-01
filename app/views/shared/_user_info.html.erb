@@ -8,3 +8,6 @@
 
 <%= link_to "プロフィール", current_user %><br>
 <%= pluralize(current_user.microposts.count, "micropost") %></div>
+<section class="stats">
+  <%= render 'shared/stats' %>
+</section>

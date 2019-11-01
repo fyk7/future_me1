@@ -1,0 +1,59 @@
+<% provide(:title, @title) %>
+<div class="row">
+  <aside class="col-md-3">
+    <section class="user_info">
+      <% if @user.image?%>
+      <%= link_to((image_tag @user.image.url, :size =>'100x100'), @user )%>
+      <% else %>
+      <a href="/users/<%= @user.id%>"><img src="<%="/user_images/#{@user.image_name}"%>" width="100" height="100"></a>
+      <% end %>
+      <h3><%= @user.name %></h3>
+      <span><%= link_to "view my profile", @user %></span>
+      <span><b>投稿:</b> <%= @user.microposts.count %></span>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+      <% if @users.any? %>
+        <div class="user_avatars">
+          <% @users.each do |user| %>
+            <% if user.image?%>
+            <%= link_to((image_tag user.image.url, :size =>'30x30'), user )%>
+            <% else %>
+            <a href="/users/<%= user.id%>"><img src="<%="/user_images/#{user.image_name}"%>" width="30" height="30"></a>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </section>
+  </aside>
+  <div class="col-md-9">
+    <h3><%= @title %></h3>
+    <% if @users.any? %>
+      <ul class="users follow">
+        <% @users.each do |user| %>
+    
+        <div class="card mb-3" style="max-width: 540px; ">
+          <div class="row no-gutters">
+            <div class="col-md-3">
+              <% if user.image?%>
+              <%= link_to((image_tag user.image.url, :size =>'130x140'), user )%>
+              <% else %>
+              <a href="/users/<%= user.id%>"><img src="<%="/user_images/#{user.image_name}"%>" width="130" height="140"></a>
+              <% end %>
+            </div> 
+            <div class="col-md-9">
+              <div class="card-body">
+                <h5 class="card-title"><%= link_to user.name, user %></h5>
+                <% user_categorys = {1=>"大学1~2年", 2=>"大学2~3年", 3=>"大学3~4年", 4=>"就活中", 5=>"社会人ルーキー", 6=>"社会人ミドル"} %>
+                <p class="card-text"><%= user_categorys[user.user_category] %></p>
+                <p class="card-text"><small class="text-muted"><%= user.created_at%>から利用しています。</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </ul>
+      <%= paginate @users %>
+    <% end %>
+  </div>
+</div>
