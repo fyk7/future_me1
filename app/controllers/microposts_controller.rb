@@ -51,18 +51,18 @@ class MicropostsController < ApplicationController
     #@microposts = Micropost.where(micropost_category: 5).order(created_at: :desc).page(params[:page]).per(15)
   end
   
-  def search
-    @microposts = Micropost.search(params[:search_micropost]).page(params[:page]).per(15)
+  def search#navbar用
+    @microposts = Micropost.search(params[:search_micropost]).page(params[:page]).per(10)
   end
 
-  def index
+  def index#詳細投稿用
     @q = Micropost.ransack(params[:q])
-    @microposts = @q.result(distinct: true).page(params[:page]).per(15)
+    @microposts = @q.result(distinct: true).page(params[:page]).per(10)
   end
 
   def hashtags
     tag = Tag.find_by(name: params[:name])
-    @microposts = tag.microposts.page(params[:page]).per(15)
+    @microposts = tag.microposts.page(params[:page]).per(10)
     @tag = tag
   end
 

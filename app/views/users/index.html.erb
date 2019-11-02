@@ -30,7 +30,7 @@
               </div>
             </section>
 
-            <p class="card-text"><small class="text-muted"><%= user.created_at%>から利用しています。</small></p>
+            <p class="card-text"><small class="text-muted"><%= user.created_at.strftime("%Y-%m-%d ")%>から利用しています。</small></p>
           </div>
         </div>
       </div>

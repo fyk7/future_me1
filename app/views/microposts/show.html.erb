@@ -15,7 +15,7 @@
             <h5 class="card-title"><%= link_to @micropost.user.name, @micropost.user %></h5>
             <% user_categorys = {1=>"大学1~2年", 2=>"大学2~3年", 3=>"大学3~4年", 4=>"就活中", 5=>"社会人ルーキー", 6=>"社会人ミドル"} %>
             <p class="card-text"><%= user_categorys[@micropost.user.user_category] %></p>
-            <p class="card-text"><small class="text-muted"><%= @micropost.user.created_at%>から利用しています。</small></p>
+            <p class="card-text"><small class="text-muted"><%= @micropost.user.created_at.strftime("%Y-%m-%d")%>から利用しています。</small></p>
           </div>
         </div>
       </div>
@@ -26,12 +26,10 @@
   </div>
   <div>
     <h4>コメント</h4>
-    <div id="comments_area"><!-- #① -->
-      <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+    <div id="comments_area">
       <%= render partial: 'comments/index', locals: { comments: @comments } %>
     </div>  
     <% if logged_in? %>
-      <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
       <%= render partial: 'comments/form', locals: { comment: @comment, micropost: @micropost } %>
     <% end %>
   </div>

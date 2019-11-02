@@ -1,9 +1,11 @@
-<%= search_form_for @q do |f| %>
-  <%= f.label :content, "投稿キーワード" %>
-  <%= f.search_field :content_cont %><br>
 
-  <%= f.label :投稿カテゴリー %>
-  <%= f.radio_button :micropost_category_eq, '', {:checked => true} %>指定なし
+<%= search_form_for @q do |f| %>
+  <div class="col-10">
+  <%= f.label :content, "投稿キーワード"%>
+  <%= f.search_field :content_cont, class:"form-control",placeholder: "キーワード"  %><br>
+
+  <%= f.label :投稿カテゴリー %><br>
+  <%= f.radio_button :micropost_category_eq, '', {:checked => true} %>指定なし<br>
   <%= f.radio_button :micropost_category_eq, 1 %>大学1~2年
   <%= f.radio_button :micropost_category_eq, 2 %>大学2~3年
   <%= f.radio_button :micropost_category_eq, 3 %>大学3~4年
@@ -13,25 +15,24 @@
 
   <br>
   <%= f.label :いいねの数 %>
-  <%= f.number_field :likes_count_gteq %>以上
+  <%= f.number_field :likes_count_gteq, class:"form-control",placeholder: "いいね数"  %>
   <br>
-  <%= f.submit "検索" %>
-　<% end %>
-
-<div class="card text-center">
-  <div class="card-header">
-    <ul class="nav nav-pills card-header-pills">
-      <li class="card">
-        <%= sort_link(@q, :created_at, "投稿順") %>
-      </li>
-
-      <li class="card">
-        <%= sort_link(@q, :likes_count, "いいね順") %>
-      </li>
-    </ul>
+  <div class="float-right">
+  <%= f.submit "検索", class: "btn btn-info" %>
   </div>
-  <div class="card-body">
+  </div>
+<% end %>
+
+<div class="row col-10 ">
+      <div class="btn btn-light">
+        <%= sort_link(@q, :created_at, "投稿順並びかえ", class: "text-light") %>
+      </div>
+
+      <div class="btn btn-light">
+        <%= sort_link(@q, :likes_count, "いいね順並び替え") %>
+      </div>
+  </div> 
+ 
     <%= render 'shared/many_microposts2' %>
-  </div>
-</div>
+
 <%= paginate @microposts %>
