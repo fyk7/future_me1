@@ -1,12 +1,27 @@
-FROM ruby:2.6.5-stretch
+FROM ruby:2.6.5-alpine3.10
 
-RUN apt-get update -qq && \
-    apt-get install -y build-essential \ 
-                       libpq-dev \  
-                       mysql-client \
-                       vim
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
-        && apt-get install -y nodejs
+RUN apk update && \
+    apk add --no-cache \
+    curl-dev \
+    gcc \
+    g++ \
+    imagemagick6-dev \
+    libxml2-dev \
+    libc-dev \
+    mariadb-dev \
+    make \
+    tzdata \
+    vim \
+    nodejs \
+    yarn
+
+RUN rm -rf /usr/local/bundle/cache/* \
+    /usr/local/share/.cache/* \
+    /var/cache/* \
+    /tmp/* \
+    /usr/lib/mysqld* \
+    /usr/bin/mysql*
+
 RUN mkdir /app
 ENV APP_ROOT /app
 WORKDIR $APP_ROOT
@@ -16,3 +31,5 @@ ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
 
 RUN bundle install
 ADD . $APP_ROOT
+
+EXPOSE  3000
