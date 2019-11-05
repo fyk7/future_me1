@@ -1,4 +1,4 @@
-version: 2.1
+version: 2
 jobs:
   build:
     docker:
@@ -8,10 +8,10 @@ jobs:
           DB_HOST: 127.0.0.1
       - image: mysql:5.7
         environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_USER: root
-          MYSQL_PASSWORD: password
-          MYSQL_DATABASE: future_me_test
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_PASSWORD: ''
+          MYSQL_DATABASE: future_me_test      
     working_directory: ~/future_me
     steps:
       - checkout
@@ -28,8 +28,13 @@ jobs:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      # Database yml file change
+      - run: rm ./config/database.yml
+      - run: mv ./config/database.yml.ci ./config/database.yml
+      # Database setting
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
+      # browser for test setting
       - run: 
           name: Update ChromeDriver Version
           command: |
@@ -45,12 +50,16 @@ jobs:
               --out /tmp/test-results/rspec.xml \
               --format progress \
               $TEST_FILES
-      
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
+
+          
             
-
-
 workflows:
-  version: 2.1
+  version: 2
   build_and_test:
     jobs:
       - build
