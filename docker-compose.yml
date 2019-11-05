@@ -3,7 +3,7 @@ services:
   db:
     image: mysql:5.7
     volumes: 
-      - "./mysql-data:/var/lib/mysql"
+      - "mysql-data:/var/lib/mysql"
     environment:
       MYSQL_ROOT_PASSWORD: password
     ports:
@@ -26,4 +26,8 @@ services:
     image: selenium/standalone-chrome:3.141.59-dubnium
     ports:
       - 4444:4444
+
+  volumes: 
+    mysql-data:
+      driver: local
 

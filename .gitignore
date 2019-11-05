@@ -88,3 +88,5 @@ node_modules/
 mysql-data/
 /mysql-data/
 /.mysql-data
+../heroku/*
+heroku/*
