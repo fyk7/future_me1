@@ -27,7 +27,7 @@ services:
     ports:
       - 4444:4444
 
-  volumes: 
-    mysql-data:
-      driver: local
+volumes: 
+  mysql-data:
+    driver: local
 

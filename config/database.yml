@@ -24,30 +24,40 @@
   #<<: *default
   #database: db/production.sqlite3
 
+#development:
+  #adapter: mysql2
+  #encoding: utf8
+  #database: rails_deveropment
+  #pool: 5
+  #username: root
+  #password: password
+  #host: db
 
-development:
+default: &default
   adapter: mysql2
   encoding: utf8
-  database: rails_deveropment
+  port: 3306
   pool: 5
+  timeout: 5000
   username: root
   password: password
   host: db
 
+development:
+  <<: *default
+  database: future_me_development
+  host: db
+
 test:
-  adapter: mysql2
-  encoding: utf8
-  database: rails_test
-  pool: 5
-  username: root
-  password: password
+  <<: *default
+  database: future_me_test
   host: db
 
 production:
   adapter: mysql2
   encoding: utf8
-  database: rails_production
-  pool: 5
-  username: nnn
-  password: nnn
-  host: db
+  database: future_me_production
+  username: <%= Rails.application.credentials.aws[:rds_username] %>
+  password: <%= Rails.application.credentials.aws[:rds_database_password] %>
+  host: <%= Rails.application.credentials.aws[:rds_mysql_endpoint] %>
+  port: 3306
