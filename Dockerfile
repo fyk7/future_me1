@@ -15,13 +15,6 @@ RUN apk update && \
     nodejs \
     yarn
 
-RUN rm -rf /usr/local/bundle/cache/* \
-    /usr/local/share/.cache/* \
-    /var/cache/* \
-    /tmp/* \
-    /usr/lib/mysqld* \
-    /usr/bin/mysql*
-
 RUN mkdir /app
 ENV APP_ROOT /app
 WORKDIR $APP_ROOT
@@ -29,7 +22,7 @@ WORKDIR $APP_ROOT
 ADD ./Gemfile $APP_ROOT/Gemfile
 ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
 
-RUN bundle install
+RUN bundle install --jobs=4
 ADD . $APP_ROOT
 
 EXPOSE  3000

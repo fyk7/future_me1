@@ -1,0 +1,63 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6.5-node-browsers-legacy
+        environment:
+          RAILS_ENV: test
+          DB_HOST: 127.0.0.1
+      - image: mysql:5.7
+        environment:
+          MYSQL_USER: root
+          MYSQL_PASSWORD: password
+          MYSQL_DATABASE: future_me_test
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+    working_directory: ~/future_me
+    steps:
+      - checkout
+      - restore_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run: yarn install
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run: bundle exec rails db:create
+      - run: bundle exec rails db:schema:load
+      - run: 
+          name: Update ChromeDriver Version
+          command: |
+            bundle exec rails webdrivers:chromedriver:update
+      - run:
+          name: Rspec
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+              circleci tests split --split-by=timings)"
+            bundle exec rspec \
+              --format progress \
+              --out /tmp/test-results/rspec.xml \
+              --format progress \
+              $TEST_FILES
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
+            
+
+
+workflows:
+  version: 2.1
+  build_and_test:
+    jobs:
+      - build
+      
