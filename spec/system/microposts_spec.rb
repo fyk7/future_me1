@@ -47,7 +47,7 @@ describe '投稿機能', type: :system do
       let(:content_name){'新規作成した投稿'}
 
       it '正常に投稿される' do
-        expect(page).to have_selector '.alert-success', text: '投稿しました！'
+        expect(page).to have_selector '.alert-primary', text: '投稿しました！'
       end
     end
 
@@ -70,7 +70,7 @@ describe '投稿機能', type: :system do
 
       it 'ユーザーa自身の投稿が削除できる' do
         page.first('#delete').click
-        expect(page).to have_selector '.alert-success', text: '投稿を削除しました！'
+        expect(page).to have_selector '.alert-primary', text: '投稿を削除しました！'
       end
     end
 
