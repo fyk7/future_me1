@@ -1,9 +1,9 @@
-<%= form_for(@micropost_form) do |f| %>
+<%= form_for(@micropost_form, {multipart: true}) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-controll">
     <%= f.text_area :content, class: "form-controll col-10 content", id: 'content', rows: "4" , placeholder: "過去の自分にアドバイスをつぶやこう！... 　#ハッシュタグ" %>
   </div>画像の投稿
-  <%= f.file_field :picture, class: "btn btn-light", accept: 'image/jpeg,image/gif,image/png' %><br>
+  <%= f.file_field :picture, class: "form-control", accept: 'image/jpeg,image/gif,image/png' %><br>
     投稿対象 =>
     <%= f.select :micropost_category,[["大学1~2年", 1], ["大学2~3年", 2], ["大学3~4年", 3], 
     ["就活中", 4], ["社会人ルーキー", 5], ["社会人ミドル", 6]] %>

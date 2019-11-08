@@ -6,7 +6,7 @@ class Micropost < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
   validates :content, presence: true, length: {maximum: 200}
-  validate  :picture_size
+  validate :picture_size
   has_many :comments, dependent: :destroy
 
     def like_user(user_id)

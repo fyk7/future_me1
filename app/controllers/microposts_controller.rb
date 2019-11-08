@@ -4,7 +4,7 @@ class MicropostsController < ApplicationController
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
-    if @micropost.save
+    if @micropost.save!
       flash[:notice] = "投稿しました！"
       redirect_to root_url
     else
@@ -12,7 +12,6 @@ class MicropostsController < ApplicationController
       @microposts = Micropost.all.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
       @user = current_user
       flash[:danger] = "投稿内容を記入してください!"
-      #render 'static_pages/home' <=こちらだとなぜか/micropostにレンダリングされる！！
       redirect_to root_url
     end
   end

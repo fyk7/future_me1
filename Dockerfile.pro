@@ -5,7 +5,7 @@ RUN apk update && \
     curl-dev \
     gcc \
     g++ \
-    imagemagick6-dev \
+    imagemagick \
     libxml2-dev \
     libc-dev \
     mariadb-dev \
