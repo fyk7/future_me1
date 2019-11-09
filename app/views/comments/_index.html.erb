@@ -1,9 +1,22 @@
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
-    <p><%= link_to "#{comment.user.name}さん", user_path(comment.user.id) %></p>
-    <p>コメント：<%= comment.content %></p>
-    <% if comment.user == current_user %>
-      <p><%= link_to 'コメントを削除する', micropost_comment_path(comment.micropost_id, comment.id), method: :delete, remote: true %></p>
-    <% end %>
+  <div class="card">
+  <div class="card-body">
+  <div class="row">
+  <div class="col-3">
+  <% if comment.user.image?%>
+  <%= link_to((image_tag comment.user.image.url, :size =>'50x50', style: "border-radius:10px;"), comment.user )%>
+  <% else %>
+  <a href="/users/<%= comment.user.id%>"><img src="<%="/user_images/#{comment.user.image_name}"%>" width="50" height="50", style="border-radius:10px;"></a>
+  <% end %><br>
+  <small><a href="/users/<%= comment.user_id %>"><%= comment.user.name %></a>さん</small>
+  </div>
+  <div class="col-9">
+   <strong><%= comment.content %></strong><br>
+   <%= link_to '削除', micropost_comment_path(comment.micropost_id, comment.id), class: "btn btn-danger float-right", method: :delete, remote: true %>
+  </div>
+  </div>
+  </div>
+  </div> 
   <% end %>
 <% end %>

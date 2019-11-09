@@ -30,17 +30,17 @@ describe 'フォロー機能', type: :system do
         it 'ユーザーaがユーザーbをフォローできる' do
           expect(page).to have_content user_b.name
           expect(page).to have_content '0 フォロワー'
-          click_button 'Follow'
+          click_button 'フォローする'
           sleep 1
           expect(page).to have_content '1 フォロワー'
         end
 
         it 'ユーザーaがユーザーbへのフォローを解除できる' do
           expect(page).to have_content user_b.name
-          click_button 'Follow'
+          click_button 'フォローする'
           sleep 1
           expect(page).to have_content '1 フォロワー'
-          click_button 'Unfollow'
+          click_button 'フォローを解除'
           sleep 1
           expect(page).to have_content '0 フォロワー'
         end
