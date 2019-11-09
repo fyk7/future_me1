@@ -1,8 +1,8 @@
 <div class="">
 <% if @user.image?%>
-<%= image_tag @user.image.url, :size =>'120x120' %>
+<%= link_to((image_tag @user.image.url, :size =>'130x130', style: "border-radius:10px;"), @user )%>
 <% else %>
-<img src = "<%="/user_images/#{@user.image_name}"%>" width="120"" height="120">
+<a href="/users/<%= @user.id%>"><img src="<%="/user_images/#{@user.image_name}"%>" width="130" height="130", style="border-radius:10px;"></a>
 <% end %>
 <p><%= current_user.name %></p>
 

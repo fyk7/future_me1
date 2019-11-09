@@ -23,8 +23,7 @@
     </div>
     <h3>投稿詳細</h3>
     <%= render 'shared/micropost_show'%>
-  </div>
-  <div>
+    <div>
     <h4>コメント</h4>
     <div id="comments_area">
       <%= render partial: 'comments/index', locals: { comments: @comments } %>
@@ -33,4 +32,6 @@
       <%= render partial: 'comments/form', locals: { comment: @comment, micropost: @micropost } %>
     <% end %>
   </div>
+  </div>
+  
 </div>

@@ -1,4 +1,7 @@
 
+
+<div class="home-upper">
+<h1>投稿の詳細検索</h1>
 <%= search_form_for @q do |f| %>
   <div class="col-10">
   <%= f.label :content, "投稿キーワード"%>
@@ -36,3 +39,4 @@
     <%= render 'shared/many_microposts2' %>
 
 <%= paginate @microposts %>
+</div>

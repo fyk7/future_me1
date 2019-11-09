@@ -1,42 +1,39 @@
 <% provide(:title, @user.name) %>
-<div class="profile">
-  <div class="users-wrap">
-    <div class="user-left">
-      <% if @user.image?%>
-      <%= link_to((image_tag @user.image.url, :size =>'100x100'), @user )%>
-      <% else %>
-      <a href="/users/<%= @user.id%>"><img src="<%="/user_images/#{@user.image_name}"%>" width="100" height="100"></a>
-      <% end %>
-    </div>
-    <%= @user.name%>
-
-    <div>
-    <p>トークルーム一覧<p><br>
-    </div>
+<div class="users-wrap">
+<div class="row">
+  <div class="col-5">
     
-  </div>
-</div>
+      <% if @user.image?%>
+      <%= link_to((image_tag @user.image.url, :size =>'200x200', style: "border-radius:10px;"), @user )%>
+      <% else %>
+      <a href="/users/<%= @user.id%>"><img src="<%="/user_images/#{@user.image_name}"%>" width="200" height="200", style="border-radius:10px;"></a>
+      <% end %>
+      </div>
+    <div class="col-7">
+    <h2><%= @user.name%></h2>
 <section class="stats">
   <%= render 'shared/stats' %>
 </section>
 <%= render 'follow_form' if logged_in? %>
-
-<% if @user.id == current_user.id %>
+   <% if @user.id == current_user.id %>
 
 <% else %>
   <% if @isRoom == true %>
-    <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+    <p><a href="/rooms/<%= @roomId %>" class="btn btn-info w-75 mt-2">チャットへ</a>
   <% else %>
     <%= form_for @room do |f| %>
       <%= fields_for @entry do |e| %>
         <%= e.hidden_field :user_id, :value=> @user.id %>
       <% end %>
-      <%= f.submit "チャットを始める" %>
+      <%= f.submit "チャットを始める", class: "btn btn-info w-75 mt-2" %>
     <% end %>
   <% end %>
 <% end %>
 
-<%= link_to "ユーザー一覧に戻る", users_path %>
+<%= link_to "ユーザー一覧に戻る", users_path, class: "btn btn-success w-75 mt-2" %> 
+  </div>
+  </div>
+</div>
 
 <div class="microposts-wrap">
   <% if @user.microposts.any? %>
