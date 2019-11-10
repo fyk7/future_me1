@@ -11,6 +11,7 @@ ja:
         name: 名前
         email: メールアドレス
         password: パスワード
+        password_confirmation: パスワードの確認
         user_category: ユーザーカテゴリー
         image: イメージ画像
 
