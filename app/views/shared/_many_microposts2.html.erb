@@ -1,10 +1,8 @@
 <% @microposts.each do |micropost| %>
   <div class="card mb-3 rounded-0" style="max-width: 600px;">
     <div class="card-header text-center">
-      <% micropost_categorys = {1=>"大学1~2年", 2=>"大学2~3年", 3=>"大学3~4年",
-       4=>"就活中", 5=>"社会人ルーキー", 6=>"社会人ミドル"} %>
-      <%=micropost_categorys[micropost.user.user_category]%>
-      => <%= micropost_categorys[micropost.micropost_category] %>
+    <%= micropost.user.user_category %>
+      => <%= micropost.micropost_category %>
     </div>
     <div class="row no-gutters">
       <div class="col-md-3">
@@ -18,7 +16,7 @@
         </div>
     <div class="card-body">
       <h5 ><%= link_to(micropost.user.name, "/users/#{micropost.user.id}") %></h5>  
-      <p>(<%= micropost_categorys[micropost.user.user_category] %>)</p>
+      <p>(<%=  micropost.user.user_category%>)</p>
       <section class="stats">
         <% user ||= current_user %>
         <div class="stats">

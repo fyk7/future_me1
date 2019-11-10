@@ -8,6 +8,7 @@ class Micropost < ApplicationRecord
   validates :content, presence: true, length: {maximum: 200}
   validate :picture_size
   has_many :comments, dependent: :destroy
+  enum micropost_category: {大学生活前半: 1, 大学生活後半: 2, 就活中: 3, 社会人ルーキー: 4, 社会人ミドル: 5, その他: 6}
 
     def like_user(user_id)
       likes.find_by(user_id: user_id)

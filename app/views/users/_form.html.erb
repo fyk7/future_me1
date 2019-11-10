@@ -23,7 +23,18 @@
             <%= f.password_field :password_confirmation, class: 'form-control' %>
             
             <%= f.label :user_category %><br>
-            <%= f.select :user_category,[["大学1~2年", 1], ["大学2~3年", 2], ["大学3~4年", 3], ["就活中", 4], ["社会人1~3年目", 5], ["社会人ミドル", 6]], class: 'form-control' %>
+            <%= f.radio_button :user_category, :大学生活前半 %>
+            <%= f.label :大学生活前半, class: "job_type_label" %>
+            <%= f.radio_button :user_category, :大学生活後半 %>
+            <%= f.label :大学生活後半, class: "job_type_label" %>
+            <%= f.radio_button :user_category, :就活中 %>
+            <%= f.label :就活中, class: "job_type_label" %><br>
+            <%= f.radio_button :user_category, :社会人ルーキー %>
+            <%= f.label :社会人ルーキー, class: "job_type_label" %>
+            <%= f.radio_button :user_category, :社会人ミドル %>
+            <%= f.label :社会人ミドル, class: "job_type_label" %>
+            <%= f.radio_button :user_category, :その他 %>
+            <%= f.label :その他, class: "job_type_label" %>
             <div class="text-right">
       　　     <%= f.submit yield(:button_text), class: "btn btn-success " %>
       　　   </div>

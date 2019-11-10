@@ -1,5 +1,3 @@
-
-
 <div class="home-upper">
 <h1>投稿の詳細検索</h1>
 <%= search_form_for @q do |f| %>
@@ -8,17 +6,17 @@
   <%= f.search_field :content_cont, class:"form-control",placeholder: "キーワード"  %><br>
 
   <%= f.label :投稿カテゴリー %><br>
-  <%= f.radio_button :micropost_category_eq, '', {:checked => true} %>指定なし<br>
-  <%= f.radio_button :micropost_category_eq, 1 %>大学1~2年
-  <%= f.radio_button :micropost_category_eq, 2 %>大学2~3年
-  <%= f.radio_button :micropost_category_eq, 3 %>大学3~4年
-  <%= f.radio_button :micropost_category_eq, 4 %>就活中
-  <%= f.radio_button :micropost_category_eq, 5 %>社会人ルーキー
-  <%= f.radio_button :micropost_category_eq, 6 %>社会人ミドル
+  <%= f.radio_button :micropost_category_eq, '', {:checked => true} %>指定なし
+  <%= f.radio_button :micropost_category_eq, 1 %>大学生活前半
+  <%= f.radio_button :micropost_category_eq, 2 %>大学生活後半
+  <%= f.radio_button :micropost_category_eq, 3 %>就活中<br>
+  <%= f.radio_button :micropost_category_eq, 4 %>社会人ルーキー
+  <%= f.radio_button :micropost_category_eq, 5 %>社会人ミドル
+  <%= f.radio_button :micropost_category_eq, 6 %>その他
 
   <br>
   <%= f.label :いいねの数 %>
-  <%= f.number_field :likes_count_gteq, class:"form-control",placeholder: "いいね数"  %>
+  <%= f.number_field :likes_count_gteq, class:"form-control",placeholder: "いいね数(~以上)"  %>
   <br>
   <div class="float-right">
   <%= f.submit "検索", class: "btn btn-info" %>
@@ -27,11 +25,11 @@
 <% end %>
 
 <div class="row col-10 ">
-      <div class="btn btn-light">
+      <div class="btn btn-warning">
         <%= sort_link(@q, :created_at, "投稿順並びかえ", class: "text-light") %>
       </div>
 
-      <div class="btn btn-light">
+      <div class="btn btn-warning">
         <%= sort_link(@q, :likes_count, "いいね順並び替え") %>
       </div>
   </div> 

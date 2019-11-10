@@ -2,23 +2,24 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      micropost: 投稿
     attributes:
       user:
         id: ID
         created_at: 登録日時
         updated_at: 更新日時
+        name: 名前
         email: メールアドレス
         password: パスワード
         user_category: ユーザーカテゴリー
-        image: 画像
-    
-    models:
-      micropost: 投稿
-    attributes:
+        image: イメージ画像
+
       micropost:
         id: ID
         created_at: 登録日時
         updated_at: 更新日時
         content: 投稿内容
-        micropost_category: 投稿先カテゴリー
+        micropost_category: 投稿カテゴリー
         picture: 投稿画像
+    
+    
