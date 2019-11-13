@@ -51,7 +51,8 @@ class MicropostsController < ApplicationController
   end
   
   def search#navbar用
-    @microposts = Micropost.search(params[:search_micropost]).page(params[:page]).per(10)
+    @q = Micropost.ransack(content_and_user_name_cont_any: params[:q].split(' '))
+    @microposts = @q.result.page(params[:page]).per(10)
   end
 
   def index#詳細投稿用
