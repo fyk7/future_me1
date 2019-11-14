@@ -7,6 +7,7 @@ class Micropost < ApplicationRecord
   validates :user_id, presence: true
   validates :content, presence: true, length: {maximum: 200}
   validate :picture_size
+  validates :micropost_category, presence: true
   has_many :comments, dependent: :destroy
   enum micropost_category: {大学生活前半: 1, 大学生活後半: 2, 就活中: 3, 社会人ルーキー: 4, 社会人ミドル: 5, その他: 6}
 
