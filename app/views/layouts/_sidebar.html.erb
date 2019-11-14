@@ -3,9 +3,8 @@
  <h2>Sidebar</h2>
 <ul>
   <li><a href="/"><i class="fas fa-home"></i>ホーム</a></li>
-  <li><a href="users/:id"><i class="fas fa-user"></i>プロフィール</a></li>
+  <li><a href="users/<%= current_user.id%>"><i class="fas fa-user"></i>プロフィール</a></li>
   <li><a href="/rank_all"><i class="fas fa-address-card"></i>全体ランキング</a></li>
-  <li><a href="#"><i class="fas fa-home"></i>チャットルーム</a></li>
   <li><a href="/sort-micropost"><i class="fas fa-map-pin"></i>投稿詳細検索</a></li>
   <li><a href="/sort-micropost"><i class="fas fa-map-pin"></i>レベル推移</a></li>
 </ul> 

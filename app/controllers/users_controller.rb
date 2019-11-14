@@ -66,23 +66,15 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
-  def likes
-  end
-
-  def search
-    #Viewのformで取得したパラメータをモデルに渡す
-    #@users = User.search(params[:search_user]).page(params[:page]).per(25)
-  end
-
   def following
-    @title = "Following"
+    @title = "フォローしているユーザー一覧"
     @user  = User.find(params[:id])
     @users = @user.following.page(params[:page]).per(10)
     render 'show_follow'
   end
 
   def followers
-    @title = "Followers"
+    @title = "フォロワー一覧"
     @user  = User.find(params[:id])
     @users = @user.followers.page(params[:page]).per(10)
     render 'show_follow'

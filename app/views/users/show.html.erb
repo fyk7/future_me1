@@ -36,7 +36,9 @@
 
 <div class="microposts-wrap">
   <% if @user.microposts.any? %>
-    <h3><%= @user.microposts.count %>件のコメント</h3>
+    <div class="text-center" style="padding-top: 20px;">
+      <h3><%= @user.microposts.count %>件の投稿</h3>
+    </div>
     <%= render 'shared/many_microposts2' %>
     <%= paginate @microposts %>
   <% end %>

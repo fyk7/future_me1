@@ -14,7 +14,7 @@
     <%= f.label :社会人ルーキー, class: "job_type_label" %>
     <%= f.radio_button :micropost_category, :社会人ミドル %>
     <%= f.label :社会人ミドル, class: "job_type_label" %>
-    <%= f.radio_button :micropost_category, :その他 %>
+    <%= f.radio_button :micropost_category, :その他, checked: true %>
     <%= f.label :その他, class: "job_type_label" %>
 
     <%= f.file_field :picture, class: "btn btn-light float-right w-100 mt-2", accept: 'image/jpeg,image/gif,image/png' %>

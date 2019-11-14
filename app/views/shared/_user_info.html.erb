@@ -7,7 +7,8 @@
 <p><%=link_to current_user.name, current_user, class: "mx-auto" %></p>
 
 <strong><%= link_to "プロフィール", current_user, class: "mx-auto"%></strong><br>
-<%= pluralize(current_user.microposts.count, "件の投稿") %></div>
+<%= pluralize(current_user.microposts.count, "件の投稿") %>
+</div>
 <section class="stats">
   <%= render 'shared/stats' %>
 </section>
