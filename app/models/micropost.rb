@@ -18,7 +18,7 @@ class Micropost < ApplicationRecord
       micropost = Micropost.find_by(id: self.id)
       hashtags  = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
       hashtags.uniq.map do |hashtag|
-        tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))#.delete('＃'))
+        tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#').delete('＃'))
         micropost.tags << tag
       end
     end
@@ -28,7 +28,7 @@ class Micropost < ApplicationRecord
       micropost.hashtags.clear
       hashtags = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
       hashtags.uniq.map do |hashtag|
-        tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))#.delete('＃'))
+        tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#').delete('＃'))
         micropost.tags << tag
       end
     end

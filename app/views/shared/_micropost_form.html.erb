@@ -3,6 +3,7 @@
   <div class="form-controll">
     <%= f.text_area :content, class: "form-controll col-12",style: "border-radius:10px;", id: 'content', rows: "4", placeholder: "過去の自分にアドバイスをつぶやこう！...                       #ハッシュタグ　リンク（http//...）" %>
   </div>
+  <div class="text-center">
   <h5>投稿したい相手のカテゴリー</h5>  
     <%= f.radio_button :micropost_category, :大学生活前半 %>
     <%= f.label :大学生活前半, class: "job_type_label" %>
@@ -16,9 +17,9 @@
     <%= f.label :社会人ミドル, class: "job_type_label" %>
     <%= f.radio_button :micropost_category, :その他, checked: true %>
     <%= f.label :その他, class: "job_type_label" %>
-
-    <%= f.file_field :picture, class: "btn btn-light float-right w-100 mt-2", accept: 'image/jpeg,image/gif,image/png' %>
-    <%= f.submit "投稿", class: "btn btn-info float-right w-100 mt-2" %>
+  </div>
+    <%= f.file_field :picture, class: "btn btn-light float-right w-100 mt-2 ", accept: 'image/jpeg,image/gif,image/png' %>
+    <%= f.submit "投稿", class: "btn btn-info float-right w-100 mt-2 " %>
     </span>
 <% end %>
 

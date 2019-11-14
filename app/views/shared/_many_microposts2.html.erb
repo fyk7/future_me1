@@ -15,19 +15,12 @@
         <% end %>
         </div>
     <div class="card-body">
-      <h5 ><%= link_to(micropost.user.name, "/users/#{micropost.user.id}") %></h5>  
-      <p>(<%=  micropost.user.user_category%>)</p>
-      <section class="stats">
-        <% user ||= current_user %>
-        <div class="stats">
-          <a href="<%= followers_user_path(micropost.user) %>">
-            <strong id="followers" class="stat">
-              <%= micropost.user.followers.count %>
-            </strong>
-            フォロワー
-          </a>
-        </div>
-      </section>
+      <strong><%= link_to(micropost.user.name, "/users/#{micropost.user.id}") %></strong><br>
+      <strong><%=  micropost.user.user_category%></strong><br>
+      <a href="<%= followers_user_path(micropost.user) %>">
+          <%= micropost.user.followers.count %>
+        フォロワー
+      </a>
     </div>
     </div>
     </div>
@@ -42,7 +35,7 @@
                 <div id="likes_buttons_<%= micropost.id %>">
                 <%= render partial: 'likes/like', locals: { micropost: micropost, likes: @likes} %>
                 </div>
-                <div>
+                <div style="margin-left: 5px;">
                   <a href="<%="/microposts/#{micropost.id}"%>"><i class="fa fa-comment-dots"></i><%= micropost.comments.count%></a>
                 </div>
                 <div>

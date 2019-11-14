@@ -7,8 +7,10 @@
       <%= render 'shared/micropost_form' %>
     </div>
   </div>
-  <div class="microposts-wrap">
-    <h3>最近の投稿</h3>
+  <div class="microposts-wrap " style="padding-top: 120px;">
+    <div class="text-center">
+      <h3>最近の投稿</h3>
+    </div>
     <%= render 'shared/many_microposts2' %>
     <%= paginate @microposts %>
   </div>

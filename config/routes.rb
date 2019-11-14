@@ -28,9 +28,9 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
     resources :comments
   end
-  get "users/:id/likes" => "users#likes"
+  get "users/:id/likes", to: "users#likes"
   get '/microposts/hashtag/:name', to: "microposts#hashtags"
-  resources :messages, :only => [:create]
-  resources :rooms, :only => [:create, :show, :index]
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create, :show, :index]
   
 end

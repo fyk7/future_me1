@@ -1,9 +1,0 @@
-<% provide(:title, "student") %>
-<div class="profile">
-  <div class="users-wrap">
-    学生ランキング
-  </div>
-</div>
-<div class="microposts-wrap">
-<%= render 'shared/many_microposts2' %>
-</div>

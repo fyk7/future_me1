@@ -38,24 +38,12 @@ class MicropostsController < ApplicationController
     @microposts = Micropost.find(Like.group(:micropost_id).order('count(micropost_id) desc').limit(10).pluck(:micropost_id))
   end
 
-  def student
-    #@microposts = Micropost.where(micropost_category: [1,2,3]).order(created_at: :desc).page(params[:page]).per(15)
-  end
-
-  def recruit
-    #@microposts = Micropost.where(micropost_category: 4).order(created_at: :desc).page(params[:page]).per(15)
-  end
-
-  def work_rookie
-    #@microposts = Micropost.where(micropost_category: 5).order(created_at: :desc).page(params[:page]).per(15)
-  end
-  
-  def search#navbar用
+  def search
     @q = Micropost.ransack(content_or_user_name_cont_any: params[:q].split(' '))
     @microposts = @q.result.page(params[:page]).per(10)
   end
 
-  def index#詳細投稿用
+  def index
     @q = Micropost.ransack(params[:q])
     @microposts = @q.result(distinct: true).page(params[:page]).per(10)
   end
