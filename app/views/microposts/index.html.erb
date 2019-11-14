@@ -1,7 +1,9 @@
 <div class="home-upper">
-<h1>投稿の詳細検索</h1>
+<div class="text-center">
+<h2>投稿の詳細検索</h2>
+</div>
 <%= search_form_for @q do |f| %>
-  <div class="col-10">
+  <div class="col-12">
   <%= f.label :content, "投稿キーワード"%>
   <%= f.search_field :content_cont_any, class:"form-control",placeholder: "キーワード"  %><br>
   <%= f.label :user_name, "ユーザー"%>
