@@ -14,13 +14,10 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :microposts, only: [:create, :destroy, :show, :edit]
+  resources :microposts, only: [:create, :destroy, :show]
   resources :relationships,       only: [:create, :destroy]
   get  '/micropost',  to: 'microposts#show'
   get  '/rank_all',  to: 'microposts#rank_all'
-  #get  '/student',  to: 'microposts#student'
-  #get  '/recruit',  to: 'microposts#recruit'
-  #get  '/work_rookie',  to: 'microposts#work_rookie'
   get '/sort-micropost',  to: 'microposts#index'
   get '/search_micropost',  to: 'microposts#search'
   get '/search_user',  to: 'users#search'

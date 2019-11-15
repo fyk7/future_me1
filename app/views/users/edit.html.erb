@@ -1,8 +1,6 @@
-<% provide(:title, "Edit user") %>
+<% provide(:title, "アカウントの更新") %>
 <% provide(:button_text, 'アカウントの更新') %>
 <div class="users-wrap">
-
-</div>
 
 <%= form_for(@user, {multipart: true}) do |f| %>
   <div class="container">
@@ -52,5 +50,6 @@
       </div>
     </div>
   </div>
+</div>
   
 <% end %>

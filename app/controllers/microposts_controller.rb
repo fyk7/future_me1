@@ -28,12 +28,6 @@ class MicropostsController < ApplicationController
     @comments = @micropost.comments
   end
 
-  def edit
-    @micropost = Micropost.find_by(id: params[:id])
-    @user = @micropost.user
-    @micropost_form  = current_user.microposts.build
-  end
-
   def rank_all
     @microposts = Micropost.find(Like.group(:micropost_id).order('count(micropost_id) desc').limit(10).pluck(:micropost_id))
   end
