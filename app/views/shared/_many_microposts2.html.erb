@@ -2,7 +2,7 @@
   <div class="card mb-3 rounded-0" style="max-width: 600px;">
     <div class="card-header text-center">
     <%= micropost.user.user_category %>
-      => <strong><%= micropost.micropost_category %></strong>
+      => <%= render partial: 'shared/micropost_category_search', locals: { micropost: micropost} %>
     </div>
     <div class="row no-gutters">
       <div class="col-md-3">

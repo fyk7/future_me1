@@ -5,7 +5,7 @@
       <h5 class="card-title">ハッシュタグ</h5>
       <h6 class="card-subtitle mb-2 text-muted">キーワード</h6>
       <% @tag_all_pages.each do |tag_all_pages|%>
-      <%= link_to(tag_all_pages.name, "/microposts/hashtag/#{tag_all_pages.name}") %>
+      <%= link_to(tag_back_to_hash(tag_all_pages.name), "/microposts/hashtag/#{tag_all_pages.name}") %>
       <% end %>
     </div>
   </div>
