@@ -1,9 +1,9 @@
 <div class="home-upper">
-<div class="text-center">
-<h2>投稿の詳細検索</h2>
-</div>
+  <div class="text-center">
+  <h2>投稿の詳細検索</h2>
+  </div>
 <%= search_form_for @q do |f| %>
-  <div class="col-12">
+  <div class="col-12" style="padding-bottom: 50px;">
   <%= f.label :content, "投稿キーワード"%>
   <%= f.search_field :content_cont_any, class:"form-control",placeholder: "キーワード"  %><br>
   <%= f.label :user_name, "ユーザー"%>
@@ -28,12 +28,11 @@
   </div>
 <% end %>
 
-<div class="row col-10 ">
-      <div class="btn btn-warning">
-        <%= sort_link(@q, :created_at, "投稿順並びかえ", class: "text-light") %>
+  <div class="row col-10 ">
+      <div class="btn btn-light">
+        <%= sort_link(@q, :created_at, "投稿順並びかえ") %>
       </div>
-
-      <div class="btn btn-warning">
+      <div class="btn btn-light">
         <%= sort_link(@q, :likes_count, "いいね順並び替え") %>
       </div>
   </div> 
