@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <div class="microposts-wrap">
-    <h3><%= link_to(@tag.name, "/microposts/hashtag/#{@tag.name}") %></h3>
+    <h3><%= link_to(tag_back_to_hash(@tag.name), "/microposts/hashtag/#{@tag.name}") %></h3>
     <%= render 'shared/many_microposts2' %>
     <%= paginate @microposts %>
   </div>
