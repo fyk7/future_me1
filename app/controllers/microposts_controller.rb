@@ -48,6 +48,10 @@ class MicropostsController < ApplicationController
     @tag = tag
   end
 
+  def tag_index
+    @tag = Tag.all.order(created_at: :desc)
+  end
+
   private
 
     def micropost_params

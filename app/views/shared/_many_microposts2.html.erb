@@ -1,5 +1,5 @@
 <% @microposts.each do |micropost| %>
-  <div class="card mb-3 rounded-0" style="max-width: 600px;">
+  <div class="card mb-3 " style="max-width: 600px;">
     <div class="card-header text-center">
     <%= micropost.user.user_category %>
       => <%= render partial: 'shared/micropost_category_search', locals: { micropost: micropost} %>

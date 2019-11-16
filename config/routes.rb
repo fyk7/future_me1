@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get  '/rank_all',  to: 'microposts#rank_all'
   get '/sort-micropost',  to: 'microposts#index'
   get '/search_micropost',  to: 'microposts#search'
+  get '/tag_index',  to: 'microposts#tag_index'
   get '/search_user',  to: 'users#search'
   resources :microposts do
     resources :likes, only: [:create, :destroy]
