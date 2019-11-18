@@ -22,6 +22,9 @@
   </div>
   <div class="col-9">
    <strong><%= m.content %></strong>
+   <%if m.user == current_user %>
+   <%= link_to '削除', message_path(m.id), class: "btn btn-danger float-right", method: :delete, remote: true %>
+   <% end %>
   </div>
   </div>
   </div>
