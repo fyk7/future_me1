@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
   get "users/:id/likes", to: "users#likes"
   get '/microposts/hashtag/:name', to: "microposts#hashtags"
-  resources :messages, only: [:create]
+  resources :messages, only: [:create, :destroy]
   resources :rooms, only: [:create, :show, :index]
   
 end

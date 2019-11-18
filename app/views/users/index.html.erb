@@ -19,21 +19,24 @@
         <div class="col-md-9">
           <div class="card-body", style="margin-left: 30px;">
             <h5 class="card-title"><%= link_to user.name, user %></h5>
-            <% user_categorys = {1=>"大学1~2年", 2=>"大学2~3年", 3=>"大学3~4年", 4=>"就活中", 5=>"社会人ルーキー", 6=>"社会人ミドル"} %>
-            <p class="card-text"><%= user_categorys[user.user_category] %></p>
-
-            <section class="stats">
-              <% user ||= current_user %>
-              <div class="stats">
-                <a href="<%= followers_user_path(user) %>">
-                  <strong id="followers" class="stat">
-                    <%= user.followers.count %>
-                  </strong>
-                  フォロワー
-                </a>
-              </div>
-            </section>
-
+            <p class="card-text"><%= user.user_category %></p>
+            <!-- 以下DRY化する必要あり -->
+            <% user ||= current_user %>
+            <div class="stats">
+              <a href="<%= following_user_path(user) %>">
+                <strong id="following" class="stat">
+                  <%= user.following.count %>
+                </strong>
+                フォロー
+              </a>
+              <a href="<%= followers_user_path(user) %>">
+                <strong id="followers" class="stat">
+                  <%= user.followers.count %>
+                </strong>
+                フォロワー
+              </a>
+            </div>
+　　　　　　　<!-- DRY化する必要あり -->
             <p class="card-text"><small class="text-muted"><%= user.created_at.strftime("%Y-%m-%d ")%>から利用しています。</small></p>
           </div>
         </div>
