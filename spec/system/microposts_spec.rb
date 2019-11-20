@@ -43,7 +43,7 @@ describe '投稿機能', type: :system do
       click_button '投稿'
     end
 
-    context '新規作成画面で名称を入力した時' do
+    context '投稿新規作成画面で名称を入力した時' do
       let(:content_name){'新規作成した投稿'}
 
       it '正常に投稿される' do
@@ -51,7 +51,7 @@ describe '投稿機能', type: :system do
       end
     end
 
-    context '新規作成画面で名称を入力しなかった時' do
+    context '投稿新規作成画面で名称を入力しなかった時' do
       let(:content_name){''}
 
       it 'エラーとなる！' do

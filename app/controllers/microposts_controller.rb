@@ -19,13 +19,14 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost.destroy
     flash[:notice] = "投稿を削除しました！"
-    redirect_to request.referrer || root_url
+    redirect_to root_url
+    #redirect_to request.referrer || root_url
   end
 
   def show 
     @micropost = Micropost.find_by(id: params[:id])
     @comment = Comment.new
-    @comments = @micropost.comments
+    @comments = @micropost.comments 
   end
 
   def rank_all
