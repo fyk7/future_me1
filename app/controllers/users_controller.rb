@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.all.order(created_at: :desc).page(params[:page]).per(10)
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).page(params[:page]).per(10)
   end
 
   def show
@@ -79,7 +80,6 @@ class UsersController < ApplicationController
     @users = @user.followers.page(params[:page]).per(10)
     render 'show_follow'
   end
-
 
   private
 

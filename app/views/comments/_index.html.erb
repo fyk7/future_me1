@@ -13,7 +13,10 @@
   </div>
   <div class="col-9">
    <strong><%= comment.content %></strong><br>
+   <small class="text-muted text-right"><%= comment.created_at.strftime("%Y-%m-%d %H:%M")%>にコメントしました。 </small>
+   <% if comment.user == current_user %>
    <%= link_to '削除', micropost_comment_path(comment.micropost_id, comment.id), class: "btn btn-danger float-right",id: 'delete', method: :delete, remote: true %>
+   <% end %>
   </div>
   </div>
   </div>

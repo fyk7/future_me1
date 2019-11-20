@@ -1,9 +1,13 @@
 <div class="post-show"> 
   <div class="microposts-wrap">
-    <h3>投稿詳細</h3>
+    <div class="text-center">
+      <h2>投稿詳細</h2>
+    </div>
     <%= render 'shared/micropost_show'%>
     <div style="padding-top: 30px;">
+    <div class="text-center">
     <h4>コメント一覧</h4>
+    </div>
     <div id="comments_area">
       <%= render partial: 'comments/index', locals: { comments: @comments } %>
     </div>  
