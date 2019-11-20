@@ -13,7 +13,7 @@
   </div>
   <div class="col-9">
    <strong><%= comment.content %></strong><br>
-   <%= link_to '削除', micropost_comment_path(comment.micropost_id, comment.id), class: "btn btn-danger float-right", method: :delete, remote: true %>
+   <%= link_to '削除', micropost_comment_path(comment.micropost_id, comment.id), class: "btn btn-danger float-right",id: 'delete', method: :delete, remote: true %>
   </div>
   </div>
   </div>
