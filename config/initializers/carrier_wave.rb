@@ -12,6 +12,7 @@ if Rails.env.production?
       region: Rails.application.credentials.aws[:region],     
       aws_access_key_id: Rails.application.credentials.aws[:aws_access_key_id],
       aws_secret_access_key: Rails.application.credentials.aws[:aws_secret_access_key] 
+      path_style: true
     }
     config.fog_directory = 's3-for-future-me'
   end
