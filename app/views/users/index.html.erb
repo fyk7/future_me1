@@ -3,6 +3,28 @@
 <div class="text-center">
 <h2>ユーザー一覧</h2>
 </div>
+<%= search_form_for @q do |f| %>
+  <div class="col-12" style="padding-bottom: 50px;">
+  <%= f.label :user_name, "ユーザー"%>
+  <%= f.search_field :name_cont, class:"form-control",placeholder: "ユーザー名"  %><br>
+
+  <%= f.label :投稿カテゴリー %><br>
+  <%= f.radio_button :user_category_eq, '', checed: true %>指定なし
+  <%= f.radio_button :user_category_eq, 1 %>大学生活前半
+  <%= f.radio_button :user_category_eq, 2 %>大学生活後半
+  <%= f.radio_button :user_category_eq, 3 %>就活中<br>
+  <%= f.radio_button :user_category_eq, 4 %>社会人ルーキー
+  <%= f.radio_button :user_category_eq, 5 %>社会人ミドル
+  <%= f.radio_button :user_category_eq, 6 %>その他
+
+  <div class="float-right">
+  <%= f.submit "検索", class: "btn btn-info" %>
+  </div>
+  </div>
+  <div class="btn btn-light">
+    <%= sort_link(@q, :created_at, "登録順並びかえ") %>
+  </div>
+<% end %>
   <% @users.each do |user| %>
     
     <div class="card mb-3" style="max-width: 540px; ">
@@ -19,7 +41,7 @@
         <div class="col-md-9">
           <div class="card-body", style="margin-left: 30px;">
             <h5 class="card-title"><%= link_to user.name, user %></h5>
-            <p class="card-text"><%= user.user_category %></p>
+            <p class="card-text"><%= render partial: 'shared/user_category_search', locals: { user: user} %></p>
             <!-- 以下DRY化する必要あり -->
             <% user ||= current_user %>
             <div class="stats">
