@@ -1,7 +1,7 @@
 <div class="card mb-3 rounded-0" style="max-width: 600px;">
     <div class="card-header text-center">
       <%= render partial: 'shared/user_category_search', locals: { user: @micropost.user} %>
-      => <%= render partial: 'shared/micropost_category_search', locals: { micropost: @micropost} %>
+      から <%= render partial: 'shared/micropost_category_search', locals: { micropost: @micropost} %>への投稿
     </div>
     <div class="row no-gutters">
       <div class="col-md-3">
