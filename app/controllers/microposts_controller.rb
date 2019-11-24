@@ -20,7 +20,6 @@ class MicropostsController < ApplicationController
     @micropost.destroy
     flash[:notice] = "投稿を削除しました！"
     redirect_to root_url
-    #redirect_to request.referrer || root_url
   end
 
   def show 

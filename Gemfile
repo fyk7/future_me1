@@ -11,25 +11,23 @@ gem 'dotenv-rails'
 gem 'rubocop'
 gem 'rails-i18n', '~> 5.1'
 
-#gem 'rails_autolink'
-gem 'rinku'
+gem 'activeadmin'
+gem 'devise'
 
-gem 'chartkick'
-gem 'impressionist'
-# Use sqlite3 as the database for Active Record
+gem 'omniauth'
+gem 'omniauth-twitter'
+
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-#gem 'sassc', '2.2.1'
-#gem 'ovirt-engine-sdk-4.3.0'
 gem 'faker'
-gem 'ransack'
 
 gem 'carrierwave'
 gem 'mini_magick'
 
-gem 'kaminari'
-#gem 'will_paginate'    
+gem 'rinku'
+gem 'ransack'
+gem 'kaminari'  
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -52,11 +50,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -74,8 +67,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  #gem 'spring-commands-rspec'
-
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'

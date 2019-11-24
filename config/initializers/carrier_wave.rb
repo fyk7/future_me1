@@ -7,6 +7,9 @@ require 'carrierwave/storage/fog'
 if Rails.env.production?
   CarrierWave.configure do |config|
     config.storage :fog
+    config.fog_provider = 'fog/aws'
+    config.fog_public = false
+    config.fog_directory = 'future-me-s3'
     config.fog_credentials = {
       provider: 'AWS',
       region: Rails.application.credentials.aws[:region],     
@@ -14,6 +17,5 @@ if Rails.env.production?
       aws_secret_access_key: Rails.application.credentials.aws[:aws_secret_access_key], 
       path_style: true
     }
-    config.fog_directory = 's3-for-future-me'
   end
 end
