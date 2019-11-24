@@ -33,7 +33,7 @@
             <%= f.label :社会人ルーキー, class: "job_type_label" %>
             <%= f.radio_button :user_category, :社会人ミドル %>
             <%= f.label :社会人ミドル, class: "job_type_label" %>
-            <%= f.radio_button :user_category, :その他 %>
+            <%= f.radio_button :user_category, :その他, checked: true %>
             <%= f.label :その他, class: "job_type_label" %>
             <div class="text-right">
       　　     <%= f.submit yield(:button_text), class: "btn btn-success " %>
