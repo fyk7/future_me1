@@ -1,6 +1,9 @@
+orbs:
+  aws-ecr: circleci/aws-ecr@6.5.0
+  aws-ecs: circleci/aws-ecs@1.0.1
 version: 2.1
 jobs:
-  build:
+  test:
     docker:
       - image: circleci/ruby:2.6.5-node-browsers-legacy
         environment:
@@ -58,7 +61,34 @@ jobs:
           
 workflows:
   version: 2.1
-  build_and_test:
+  build_and_deploy:
     jobs:
-      - build
+      - test
+          filters:
+            branches:
+              only:
+                - master
+      - aws-ecr/build-and-push-image:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - master
+          account-url: AWS_ECR_ACCOUNT_URL
+          extra-build-args: '--build-arg RAILS_MASTER_KEY=${RAILS_MASTER_KEY}'
+          repo: "${AWS_RESOURCE_NAME_PREFIX}"
+          region: AWS_REGION
+          tag: "${CIRCLE_SHA1}"
+      - aws-ecs/deploy-service-update:
+          requires:
+            - aws-ecr/build-and-push-image  
+          filters:
+            branches:
+              only:
+                - master            
+          family: "${AWS_RESOURCE_NAME_PREFIX}-service"
+          cluster-name: "${AWS_ECS_CLUSTER_NAME}"
+          service-name: "${AWS_RESOURCE_NAME_PREFIX}-service"
+          container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-service,tag=${CIRCLE_SHA1}"
       
