@@ -16,21 +16,21 @@
   </div>
   
 <% else %>
-  <div class="top-wrapper">
+  <div class="top-wrapper background-image">
   <div class="container-top">
-    <h1>Future^me へようこそ！</h1>
-    <h2>未来の"自分"からアドバイスをGETしよう！</h2>
+    <h1>future⇀me へようこそ！</h1>
+    <h2>未来の"自分"からアドバイスをGETしよう！<br>future⇀meは特定の世代が特定の世代に対して、
+    <br>コメントできるアプリです。</h2>
     <div class="btn-wrapper mx-auto">
-　  <%= link_to "新規登録はこちら", signup_path, class: "btn btn-success" %>
     <%= form_for(:session, url: login_path) do |f| %>
       <%= f.hidden_field :email, {value: 'test@testuser1.com'} %>
       <%= f.hidden_field :password, {value: 'password'} %>
-      <%= f.submit "簡単ログイン", class: "btn btn-warning btn-lg", style: "color: white;" %>
+      <%= f.submit "簡単ログイン!!", class: "btn-easy-login", style: "color: white;" %>
     <% end %>
+    <%= link_to "新規登録はこちら", signup_path, class: "btn btn-success" %>
     <p>or sign up with</p>
-    <a class="btn1 twitter" href="#">
-      <span class="fa fa-twitter"></span>
-      Twitterで登録
+    <a class="btn-twitter twitter" href="#">
+      <i class="fab fa-twitter"></i>Twitterで登録
     </a>
     </div>
   </div>

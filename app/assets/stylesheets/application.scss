@@ -33,11 +33,18 @@
     padding: 0 15px;
     margin:0 auto;
   }
+
+ 
+  .background-image{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.308), rgba(0, 0, 0, 0.308)), image-url('future_me_image2.jpeg');
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+   }
   
   .top-wrapper{
-    background-image: image-url('future_me_image2.jpeg');
     padding: 200px 0 150px 0;
-    color: white;
+    color: rgb(255, 255, 255);
     background-size: cover;
     text-align: center;
   }
@@ -45,27 +52,44 @@
   .top-wrapper h1{
     opacity: 1;
     font-size: 70px;
-    color: rgba(141, 250, 40, 0.884);
+    color: rgba(123, 255, 0, 0.884);
     letter-spacing: 5px;
     font-family: "Microsoft Sans Serif";   
+    margin-bottom: 30px;
   }
   
   .top-wrapper h2{
-    font-size: 35px;
-    opacity: 0.8;
-    margin-bottom: 100px;
+    font-size: 30px;
   }
   
-  .btn1{
-    padding: 8px 24px;
+  .btn-twitter{
+    padding: 6px 20px;
     color: white;
     display: inline-block;
-    opacity: 0.8;
+    opacity: 0.9;
     border-radius: 4px;
   }
   
-  .btn1:hover{
+  .btn-twitter:hover{
     opacity: 1;
+  }
+
+  .btn-easy-login{
+    padding: 16px 48px;
+    background-color: rgb(252, 185, 0);
+    display: inline-block;
+    opacity: 1;
+    border-radius: 4px;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  .btn-easy-login:hover{
+    background-color: rgba(235, 172, 1, 0.945);
+  }
+  
+  .twitter{
+    background-color: #55acee;
+    margin-bottom: 120px;
   }
   
   .signup{
@@ -75,12 +99,6 @@
   .signup-test{
     background-color: #f5c02f;
     margin-right: 28px;
-  }
-  
-  
-  .twitter{
-    background-color: #55acee;
-    margin-bottom: 120px;
   }
   
   .btn-wrapper{
@@ -102,6 +120,7 @@
   .logo1{
     color: rgb(169, 255, 112);
     font-size: 30px;
+    font-family: "Microsoft Sans Serif";
   }
 
   .logo2{
@@ -129,30 +148,31 @@
   .wrapper-s .sidebar{
     width: 240px;
     height: 100%;
-    background: #747574;
-    
+    background:  #a4ceb0e5;
     padding: 30px 0px;
     position: fixed;
+    background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #F9F9F9), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #F9F9F9),color-stop(.75, #F9F9F9), color-stop(.75, transparent),to(transparent));
+    -webkit-background-size: 3px 3px;    
+
   }
   
   .wrapper-s .sidebar h2{
-    color: #fff;
+    color: rgb(255, 255, 255);
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 30px;
   }
   
   .wrapper-s .sidebar ul li{
     padding: 15px;
     border-bottom: 1px solid #bdb8d7;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.164);
     border-top: 1px solid rgba(255,255,255,0.05);
     list-style: none;
   }    
   
   .wrapper-s .sidebar ul li a{
     //color: #bdb8d7;
-    color: #fafafa;
+    color: #444343;
     display: block;
   }
   
@@ -161,7 +181,6 @@
   }
   
   .wrapper-s .sidebar ul li:hover{
-    //background-color: #594f8d;
     background-color: #4f8d5e;
   }
       
@@ -180,12 +199,12 @@
   .wrapper-s .sidebar .social_media a{
     display: block;
     width: 40px;
-    background: #509e61;
+    background: #8c918d;
     height: 40px;
     line-height: 45px;
     text-align: center;
     margin: 0 5px;
-    color: #bfd7b8;
+    color: #fdfdfd;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
   }
@@ -332,8 +351,11 @@
     color: #8899a6;
   }
   .like-btn-unlike{
-    color: #ff2525;
+    color: #ff2579;
   }
 
+  //コメントの色
+  .post-comment{
+    color: #25baff;
+  }
 
-//チャット
