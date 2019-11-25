@@ -5,24 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create!(name:  "Example User",
-  email: "example@railstutorial.org",
-  password:              "foobar",
-  password_confirmation: "foobar",
-  admin: true)
+if Rails.env.development?
+  AdminUser.create!(
+    email: 'admin@example.com', 
+    password: 'password', 
+    password_confirmation: 'password')
 
-99.times do |n|
-name  = Faker::Name.name
-email = "example-#{n+1}@railstutorial.org"
-password = "password"
-User.create!(name:  name,
-    email: email,
-    password:              password,
-    password_confirmation: password)
+  User.create!(
+    name: 'テストユーザー',
+    email: 'test@testuser1.com',
+    password: 'password',
+    password_confirmation: 'password',
+    user_category: '1'
+  )
 end
-
-users = User.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(5)
-  users.each { |user| user.microposts.create!(content: content) }
-end
+User.create!(name: 'テストユーザー7', email: 'test@testuser7.com', password: 'passwordd', password_confirmation: 'passwordd', user_category: 1)
