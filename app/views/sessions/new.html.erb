@@ -24,10 +24,19 @@
             <div class="text-right">
             <%= f.submit "ログイン", class: "btn btn-success" %>
             </div>
+            <div class="text-right">
+            <%= form_for(:session, url: login_path) do |f| %>
+              <%= f.hidden_field :email, {value: 'test@testuser1.com'} %>
+              <%= f.hidden_field :password, {value: 'password'} %>
+              <%= f.submit "簡単ログイン!!", class: "btn btn-warning", style: "color: white;" %>
+            <% end %>    
+            </div>
           </div>
         <% end %>
     </div>
     <p>新規登録は<%= link_to "こちら", signup_path %>から！</p>
+    
     </div>
+    
   </div>
 </div>

@@ -135,6 +135,10 @@
     opacity: 0.9;
     border-radius: 4px;
   }
+
+  .bg-selected{
+    background-color: rgb(85, 85, 85);
+  }
   
 
   //サイドバー
@@ -148,7 +152,7 @@
   .wrapper-s .sidebar{
     width: 240px;
     height: 100%;
-    background:  #a4ceb0e5;
+    background:  #a4ceabe5;
     padding: 30px 0px;
     position: fixed;
     background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #F9F9F9), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #F9F9F9),color-stop(.75, #F9F9F9), color-stop(.75, transparent),to(transparent));
@@ -172,7 +176,7 @@
   
   .wrapper-s .sidebar ul li a{
     //color: #bdb8d7;
-    color: #444343;
+    color: #747373;
     display: block;
   }
   
