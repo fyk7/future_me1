@@ -41,7 +41,7 @@
                 <div>
               　<%= link_to "詳細", "/microposts/#{micropost.id}", class: "btn-sm btn-success" %>
                 <% if current_user?(micropost.user) %>
-                <%= link_to "削除", micropost, method: :delete,　data: { confirm: "本当に削除しますか?" }, class: "btn-sm btn-danger", id: 'delete' %>
+                <%= link_to "削除", micropost, class: "btn-sm btn-danger", id: 'delete', method: :delete, data: {confirm: "本当に削除しますか?"} %>
                 <% end %>
                 </div>
               </div>

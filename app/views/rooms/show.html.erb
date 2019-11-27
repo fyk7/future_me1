@@ -24,7 +24,7 @@
    <strong><%= m.content %></strong><br>
    <small class="text-muted text-right"><%= m.created_at.strftime("%Y-%m-%d %H:%M")%>にコメントしました。 </small>
    <% if m.user == current_user %>
-   <%= link_to '削除', message_path(m.id), class: "btn btn-danger float-right", method: :delete, remote: true %>
+   <%= link_to '削除', message_path(m.id), class: "btn btn-danger float-right", method: :delete, data: {confirm: "本当に削除しますか?"}, remote: true %>
    <% end %>
   </div>
   </div>
