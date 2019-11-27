@@ -1,20 +1,20 @@
 <% @microposts.each do |micropost| %>
   <div class="card mb-3 " style="max-width: 600px;">
-    <div class="card-header text-center">
+    <div class="card-header bg-light text-center">
     <%= render partial: 'shared/user_category_search', locals: { user: micropost.user} %>
       から <%= render partial: 'shared/micropost_category_search', locals: { micropost: micropost} %>への投稿
     </div>
     <div class="row no-gutters">
       <div class="col-md-3">
-      <div class="card">
-      <div class="post-left">
+      <div class="card rounded-0" style="">
+      <div class="post-left text-center">
         <% if micropost.user.image?%>
-        <%= link_to((image_tag micropost.user.image.url, :size =>'80x80', style: "border-radius:10px;"), micropost.user )%>
+        <%= link_to((image_tag micropost.user.image.url, :size =>'80', style: "border-radius:10px;"), micropost.user )%>
         <% else %>
         <a href="/users/<%= micropost.user.id%>"><img src="<%="/user_images/#{micropost.user.image_name}"%>" width="80" height="80", style="border-radius:10px;"></a>
         <% end %>
         </div>
-    <div class="card-body">
+    <div class="card-body text-center">
       <strong><%= link_to(micropost.user.name, "/users/#{micropost.user.id}") %></strong><br>
       <strong><%=  micropost.user.user_category%></strong><br>
       <a href="<%= followers_user_path(micropost.user) %>">
@@ -36,12 +36,12 @@
                 <%= render partial: 'likes/like', locals: { micropost: micropost, likes: @likes} %>
                 </div>
                 <div style="margin-left: 5px;">
-                  <a class="post-comment" href="<%="/microposts/#{micropost.id}"%>"><i class="fa fa-comment-dots post-comment"></i><%= micropost.comments.count%></a>
+                  <a class="post-comment" href="<%="/microposts/#{micropost.id}"%>"><i class="fa fa-comment post-comment"></i><%= micropost.comments.count%></a>
                 </div>
                 <div>
               　<%= link_to "詳細", "/microposts/#{micropost.id}", class: "btn-sm btn-success" %>
                 <% if current_user?(micropost.user) %>
-                <%= link_to "削除", micropost, method: :delete,　data: { confirm: "本当に削除しますか?" }, class: "btn-sm btn-danger", id: 'delete' %>
+                <%= link_to "削除", micropost, class: "btn-sm btn-danger", id: 'delete', method: :delete, data: {confirm: "本当に削除しますか?"} %>
                 <% end %>
                 </div>
               </div>

@@ -1,21 +1,25 @@
-<div class="card mb-3 rounded-0" style="max-width: 600px;">
+<div class="card mb-3" style="max-width: 600px;">
     <div class="card-header text-center">
       <%= render partial: 'shared/user_category_search', locals: { user: @micropost.user} %>
       から <%= render partial: 'shared/micropost_category_search', locals: { micropost: @micropost} %>への投稿
     </div>
     <div class="row no-gutters">
       <div class="col-md-3">
-      <div class="card">
-      <div class="post-left">
+      <div class="card rounded-0">
+      <div class="post-left text-center">
         <% if @micropost.user.image? %>
         <%= image_tag @micropost.user.image.url  %>
         <% else %>
         <img src="/user_images/default_user.png", width="100"" height="100">
         <% end %> 
         </div>
-    <div class="card-body">
-      <h5 ><%= link_to(@micropost.user.name, "/users/#{@micropost.user.id}") %></h5>  
-      <p>(<%= @micropost.user.user_category %>)</p>
+    <div class="card-body text-center">
+      <strong><%= link_to(@micropost.user.name, "/users/#{@micropost.user.id}") %></strong><br>
+      <strong><%=  @micropost.user.user_category%></strong><br>
+      <a href="<%= followers_user_path(@micropost.user) %>">
+          <%= @micropost.user.followers.count %>
+        フォロワー
+      </a>
     </div>
     </div>
     </div>
@@ -32,7 +36,7 @@
                 </div>
                 <div>
                 <% if current_user?(@micropost.user) %>
-                <%= link_to "削除", @micropost, method: :delete,　data: { confirm: "本当に削除しますか?" }, class: "btn-sm btn-danger", id: 'delete' %>
+                <%= link_to "削除", @micropost, class: "btn-sm btn-danger", id: 'delete', method: :delete, data: {confirm: "本当に削除しますか?"} %>
                 <% end %>
                 </div>
               </div>

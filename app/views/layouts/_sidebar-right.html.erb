@@ -4,15 +4,15 @@
     <div class="card-body sidebar-right-color">
       <h5 class="card-title">ハッシュタグ</h5>
       <h6 class="card-subtitle mb-2 text-muted">キーワード</h6>
-      <% @tag_all_pages.each do |tag_all_pages|%>
-      <%= link_to(tag_back_to_hash(tag_all_pages.name), "/microposts/hashtag/#{tag_all_pages.name}") %>
+      <% @tags.each do |tag|%>
+      <%= link_to(tag_back_to_hash(tag.name), "/microposts/hashtag/#{tag.name}", style: "font-size: #{tag_size(tag.microposts.count)}px;") %>
       <% end %>
     </div>
   </div>
   <div class="card" style="width: 18rem;">
     <div class="card-body sidebar-right-color">
       <h5 class="card-title　">話題の投稿</h5>
-      <h6 class="card-subtitle mb-2 text-muted">直近100投稿の中でいいねが多かった投稿</h6>
+      <h6 class="card-subtitle mb-2 text-muted">直近1ヶ月で<br>いいねが多かった投稿</h6>
       <h6 class="card-subtitle mb-2 text-muted"></h6>
       <% @recent_microposts.each do |micropost|%>
         <%= link_to(micropost.content, "/microposts/#{micropost.id}") %><br>

@@ -1,6 +1,6 @@
 <%= form_with(model: [@micropost, @comment] ) do |form| %>
   <div>
-    <%= form.text_area :content, class: "form-controll",style: "border-radius:10px; width: 100%; margin-top:30px;" %>
+    <%= form.text_area :content, class: "form-controll",style: "border-radius:10px; width: 100%; margin-top:30px; border-color:#acabab;" %>
   </div>
   <div class="actions">
     <%= form.submit "コメントをする", class: "btn btn-info mt-2 float-right"%>

@@ -1,10 +1,11 @@
 <div class="">
 <% if @user.image?%>
-<%= link_to((image_tag @user.image.url, :size =>'140x140', style: "border-radius:10px;"), @user )%>
+<%= link_to((image_tag @user.image.url, size:'150', style: "border-radius:10px;"), @user )%>
 <% else %>
-<a href="/users/<%= @user.id%>"><img src="<%="/user_images/#{@user.image_name}"%>" width="140" height="140", style="border-radius:10px;"></a>
+<a href="/users/<%= @user.id%>"><img src="<%="/user_images/#{@user.image_name}"%>" width="150" height="15
+0", style="border-radius:10px;"></a>
 <% end %>
-<p><%=link_to current_user.name, current_user, class: "mx-auto" %></p>
+<p><%=link_to current_user.name, current_user, class: "text-center" %></p>
 
 <strong><%= link_to "プロフィール", current_user, class: "mx-auto"%></strong><br>
 <%= pluralize(current_user.microposts.count, "件の投稿") %>
