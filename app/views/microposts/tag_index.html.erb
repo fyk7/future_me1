@@ -4,7 +4,7 @@
   </div>
 <h5>
 <% @tag.each do |tag|%>
-  <%= link_to(tag_back_to_hash(tag.name), "/microposts/hashtag/#{tag.name}") %>
+  <h2><%= link_to(tag_back_to_hash(tag.name), "/microposts/hashtag/#{tag.name}", style: "font-size: #{tag_size(tag.microposts.count) + 4 }px;") %></h2>
 <% end %>
 </h5>
 </div>
