@@ -1,6 +1,6 @@
 <% @microposts.each do |micropost| %>
   <div class="card mb-3 " style="max-width: 600px;">
-    <div class="card-header text-center">
+    <div class="card-header bg-light text-center">
     <%= render partial: 'shared/user_category_search', locals: { user: micropost.user} %>
       から <%= render partial: 'shared/micropost_category_search', locals: { micropost: micropost} %>への投稿
     </div>
