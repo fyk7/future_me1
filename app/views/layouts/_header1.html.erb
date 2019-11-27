@@ -44,6 +44,13 @@
     <li class="nav-item active">
       <%= link_to "ログイン", login_path, class: "nav-link" %><span class="sr-only">(current)</span>
     </li>
+    <li class="nav-item active">
+    <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.hidden_field :email, {value: 'test@testuser1.com'} %>
+      <%= f.hidden_field :password, {value: 'password'} %>
+      <%= f.submit "簡単ログイン!!", class: "btn btn-warning", style: "color: white; border-radius: 20px;" %>
+    <% end %>
+    </li>
     
   <% end %>  
   </ul>
