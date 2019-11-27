@@ -13,6 +13,8 @@ gem 'rails-i18n', '~> 5.1'
 
 gem 'activeadmin'
 gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 gem 'omniauth'
 gem 'omniauth-twitter'

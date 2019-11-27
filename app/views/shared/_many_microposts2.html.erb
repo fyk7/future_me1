@@ -36,7 +36,7 @@
                 <%= render partial: 'likes/like', locals: { micropost: micropost, likes: @likes} %>
                 </div>
                 <div style="margin-left: 5px;">
-                  <a class="post-comment" href="<%="/microposts/#{micropost.id}"%>"><i class="fa fa-comment-dots post-comment"></i><%= micropost.comments.count%></a>
+                  <a class="post-comment" href="<%="/microposts/#{micropost.id}"%>"><i class="fa fa-comment post-comment"></i><%= micropost.comments.count%></a>
                 </div>
                 <div>
               　<%= link_to "詳細", "/microposts/#{micropost.id}", class: "btn-sm btn-success" %>
