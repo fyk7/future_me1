@@ -1,4 +1,4 @@
-<h1>チャットルーム</h1>
+<h1>トークルーム</h1>
 <div class="col-8">
 <h4>参加者 =>
 <% @entries.each do |e| %>
@@ -41,7 +41,7 @@
 
 <%= form_for @message do |f| %>
   
-  <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , class: "form-control", style: "margin-top: 30px;" %>
+  <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , class: "form-control", style: "margin-top: 30px;  border-color:#acabab;" %>
   <%= f.hidden_field :room_id, :value => @room.id %>
   <tr>
   <%= f.submit "投稿する", class: "btn btn-info float-right w-50 mt-2" %>

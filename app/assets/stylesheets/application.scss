@@ -24,7 +24,8 @@
  }
 
  body{
-   background-color: rgba(255, 255, 255, 0.596);
+  font-family: 'Microsoft Sans Serif'; 
+  background-color: rgba(253, 245, 228, 0.404);
  } 
 
   //最初の登録画面
@@ -137,7 +138,7 @@
   }
 
   .bg-selected{
-    background-color: rgb(85, 85, 85);
+    background-color: rgb(100, 100, 100);
   }
   
 
@@ -289,19 +290,13 @@
     max-width: 650px;
   }
   
-  //投稿詳細画面
-  //.post-show{
-    //margin-top: 100px;
-  //}
-  
   //プロフィール画面のmicroposts
   .post-left img {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     border-radius: 20%;
     box-shadow: 0 2px 6px #c1ced7;
     object-fit: cover;
-    margin-left: 10px;
     margin-top: 10px;
     margin-bottom: -10px;
   }
