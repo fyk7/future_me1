@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :index, :destroy,  :following, :followers]
   before_action :correct_user,   only: [:edit, :update]
-  before_action :admin_user,     only: :destroy
 
   def index
     @q = User.ransack(params[:q])
@@ -13,8 +12,7 @@ class UsersController < ApplicationController
     @microposts = @user.microposts.all.order(created_at: :desc).page(params[:page]).per(20)
     @currentUserEntry=Entry.where(user_id: current_user.id)
     @userEntry=Entry.where(user_id: @user.id)
-    if @user.id == current_user.id
-    else
+    unless @user.id == current_user.id
       @currentUserEntry.each do |cu|
         @userEntry.each do |u|
           if cu.room_id == u.room_id then
@@ -23,8 +21,7 @@ class UsersController < ApplicationController
           end
         end
       end
-      if @isRoom
-      else
+      unless @isRoom
         @room = Room.new
         @entry = Entry.new
       end
@@ -61,12 +58,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    User.find(params[:id]).destroy
-    flash[:notice] = "User deleted"
-    redirect_to users_url
-  end
-
   def following
     @title = "フォローしているユーザー一覧"
     @user  = User.find(params[:id])
@@ -91,10 +82,6 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
-    end
-
-    def admin_user
-      redirect_to(root_url) unless current_user.admin?
     end
 
 end
