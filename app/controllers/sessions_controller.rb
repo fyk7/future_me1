@@ -9,9 +9,9 @@ class SessionsController < ApplicationController
       log_in(user)
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to root_url
-      flash[:notice] = 'ログインしました'
+      flash[:notice] = 'ログインしました!'
     else
-      flash.now[:danger] = 'メールアドレスまたはパスワードが異なります'
+      flash.now[:danger] = 'メールアドレスまたはパスワードが異なります!'
       render 'new'
     end
     
@@ -20,5 +20,6 @@ class SessionsController < ApplicationController
   def destroy
     log_out if logged_in?
     redirect_to root_url
+    flash[:notice] = 'ログアウトしました！'
   end
 end
