@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   def set_tags
     if logged_in?
-      @tags = Tag.all.order(created_at: :desc).limit(10)
+      @side_tags = Tag.all.order(created_at: :desc).limit(10)
     end
   end
 

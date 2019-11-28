@@ -4,7 +4,7 @@
     <div class="card-body sidebar-right-color">
       <h5 class="card-title">#ハッシュタグ</h5>
       <h6 class="card-subtitle mb-2 text-muted">キーワード</h6>
-      <% @tags.each do |tag|%>
+      <% @side_tags.each do |tag|%>
       <%= link_to(tag_back_to_hash(tag.name), "/microposts/hashtag/#{tag.name}", style: "font-size: #{tag_size(tag.microposts.count)}px;") %>
       <% end %>
     </div>
