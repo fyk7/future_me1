@@ -22,6 +22,7 @@ https://future-me7.com
 * 直近１ヶ月のいいね数ランキング機能
 * 管理者機能（activeadmin, devise）
 * ユーザー名、コメントの詳細検索及びソート機能(ransack)
+* twitterログイン機能(omniauth)
 * ソーシャルシェア機能
 * レスポンシブデザイン(bootstrap)
 
