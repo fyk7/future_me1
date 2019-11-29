@@ -25,7 +25,7 @@
 
  body{
   font-family: 'Microsoft Sans Serif'; 
-  background-color: rgba(253, 245, 228, 0.329);
+  //background-color: rgba(253, 245, 228, 0.329);
  } 
 
   //最初の登録画面
@@ -37,7 +37,7 @@
 
  
   .background-image{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.308), rgba(0, 0, 0, 0.267)), image-url('future_me_image2.jpeg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.281), rgba(0, 0, 0, 0.308)), image-url('future_me_image2.jpeg');
     background-position: center;
     background-size: cover;
     height: 100%;
@@ -54,10 +54,11 @@
   .top-wrapper h1{
     opacity: 1;
     font-size: 70px;
-    color: rgb(123, 255, 0);
+    color: rgb(204, 255, 191);
     letter-spacing: 5px;
     font-family: "Microsoft Sans Serif";   
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    margin-top: -50px;
   }
   
   .top-wrapper h2{
@@ -141,7 +142,7 @@
   }
 
   .bg-selected{
-    background-color: rgb(122, 122, 122);
+    background-color: rgb(94, 94, 94);
   }
   
 
@@ -180,7 +181,7 @@
   }    
   
   .wrapper-s .sidebar ul li a{
-    color: #5a5a5a;
+    color: #646464;
     display: block;
   }
   
@@ -193,7 +194,7 @@
   }
       
   .wrapper-s .sidebar ul li:hover a{
-    color: rgb(165, 165, 165);
+    color: rgb(0, 0, 0);
   }
    
   .wrapper-s .sidebar .social_media{
