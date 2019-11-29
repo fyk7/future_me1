@@ -81,12 +81,7 @@ node_modules/
 # アップロードされたテスト画像を無視する
 /public/uploads
 
-#　環境設定
-.env
-
 .mysql-data/
 mysql-data/
 /mysql-data/
 /.mysql-data
-../heroku/*
-heroku/*

@@ -17,14 +17,14 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
-  before_save { self.email = email.downcase }
-  validates :name,  presence: true, length: { maximum: 50 }
+  before_save :email_downcase, unless: :uid?
+  validates :name,  presence: true, unless: :uid?, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, length: { maximum: 255 },
+  validates :email, presence: true, unless: :uid?, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     #email_address: true, #複数モデルで使用可能なvalidator作成
                     uniqueness: { case_sensitive: false }
-  has_secure_password
+  has_secure_password  validations: false
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   enum user_category: {大学生活前半: 1, 大学生活後半: 2, 就活中: 3, 社会人ルーキー: 4, 社会人ミドル: 5, その他: 6}
 
@@ -70,6 +70,29 @@ class User < ApplicationRecord
 
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def self.find_or_create_from_auth(auth)
+    provider = auth[:provider]
+    uid = auth[:uid]
+    name = auth[:info][:name]
+    image = auth[:info][:image]
+
+    self.find_or_create_by(provider: provider, uid: uid) do |user|
+      user.name = name
+      user.user_category = 'その他'
+      if user.image_url?
+        user.image_name = image
+      else
+        user.image_name = "default_user.jpeg"
+      end
+    end
+  end
+
+  private
+
+  def email_downcase
+    self.email.downcase!
   end
 
 end
