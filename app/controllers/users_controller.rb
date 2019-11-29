@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.image_name = "default_user.png"#デフォルトプロフィール
+    @user.image_name = "default_user.jpeg"#デフォルトプロフィール
     if @user.save
       log_in(@user)
       flash[:notice] = "Future⇀meへようこそ！"

@@ -3,8 +3,8 @@
   <div class="form-controll">
     <%= f.text_area :content, class: "form-controll col-12",style: "border-radius:10px; border-color:#acabab;", id: 'content', rows: "4", placeholder: "過去の自分にアドバイスをつぶやこう！...                       #ハッシュタグ　リンク（http//...）" %>
   </div>
-  <div class="text-center">
-  <h5>投稿したい相手のカテゴリー</h5>  
+  <div class="text-center" >
+  <h5 style="color: rgb(117, 212, 93);">投稿したい相手のカテゴリー</h5>  
     <%= f.radio_button :micropost_category, :大学生活前半 %>
     <%= f.label :大学生活前半, class: "job_type_label" %>
     <%= f.radio_button :micropost_category, :大学生活後半 %>
