@@ -10,9 +10,6 @@
 <div class="collapse navbar-collapse " id="navbarSupportedContent">
   <ul class="navbar-nav mr-auto">
   <% if logged_in? %>
-    <li class="nav-item active">
-      <a class="nav-link" href="/"><i class="fas fa-home"></i>ホーム<span class="sr-only">(current)</span></a>
-    </li>
     <li class="nav-item active dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fa fa-book "></i> メニュー
@@ -36,6 +33,9 @@
         <div class="dropdown-divider"></div>
         <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item" %>
       </div>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="/"><i class="fas fa-send"></i> 投稿する<span class="sr-only">(current)</span></a>
     </li>
   <% else %>
     <li class="nav-item active">
