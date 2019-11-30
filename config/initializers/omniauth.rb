@@ -1,5 +1,5 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :twitter,
-  ENV["TWITTER_KEY"],
-  ENV["TWITTER_SECRET"]
+  Rails.application.credentials.twitter[:twitter_key],
+  Rails.application.credentials.twitter[:twitter_secret]
 end
