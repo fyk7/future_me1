@@ -1,7 +1,7 @@
 <%= form_for(@micropost_form, {multipart: true}) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-controll">
-    <%= f.text_area :content, class: "form-controll col-12",style: "border-radius:10px; border-color:#acabab;", id: 'content', rows: "4", placeholder: "過去の自分にアドバイスをつぶやこう！...                       #ハッシュタグ　リンク（http//...）" %>
+    <%= f.text_area :content, class: "form-controll col-12 ",style: "border-radius:10px; border-color:#acabab; border-width: 3px; ", id: 'content', rows: "4", placeholder: "過去の自分にアドバイスをつぶやこう！...                       #ハッシュタグ　リンク（http//...）" %>
   </div>
   <div class="text-center" style="color: rgb(120, 120, 120);" >
   <h5>投稿したい相手のカテゴリー</h5>  
