@@ -39,9 +39,9 @@
                   <a class="post-comment" href="<%="/microposts/#{micropost.id}"%>"><i class="fa fa-comment post-comment"></i><%= micropost.comments.count%></a>
                 </div>
                 <div>
-              　<%= link_to "詳細", "/microposts/#{micropost.id}", class: "btn-sm btn-success" %>
+              　<%= link_to "詳細", "/microposts/#{micropost.id}", class: "btn-sm btn-success", style: "border-radius: 15px;" %>
                 <% if current_user?(micropost.user) %>
-                <%= link_to "削除", micropost, class: "btn-sm btn-danger", id: 'delete', method: :delete, data: {confirm: "本当に削除しますか?"} %>
+                <%= link_to "削除", micropost, class: "btn-sm btn-danger", style: "border-radius: 15px;", id: 'delete', method: :delete, data: {confirm: "本当に削除しますか?"} %>
                 <% end %>
                 </div>
               </div>

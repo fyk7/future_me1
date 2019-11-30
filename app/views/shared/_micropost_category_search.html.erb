@@ -1,3 +1,3 @@
 <% micropost_category_hash = {'大学生活前半' => 1, '大学生活後半' => 2, '就活中' => 3, '社会人ルーキー' => 4, '社会人ミドル' => 5, 'その他' => 6}%>
 <% micropost_category_number = micropost_category_hash[micropost.micropost_category]%>
-<%= link_to micropost.micropost_category, sort_micropost_path(q: {micropost_category_eq: micropost_category_number }), class: category_button_color(micropost.micropost_category)%>
+<%= link_to micropost.micropost_category, sort_micropost_path(q: {micropost_category_eq: micropost_category_number }), class: category_button_color(micropost.micropost_category), style: "border-radius: 10px;"%>
