@@ -56,4 +56,4 @@ masterブランチへのpushにより、テスト→ビルド→デプロイの�
 最新のECS-Orbsを用いて、config.ymlを簡潔に記述しました。
 
 # AWSアーキテクチャ図
-![awsのアーキテクチャ図](./aws-arc-image.png)
+![awsのアーキテクチャ図](./AWS_arc.png)
